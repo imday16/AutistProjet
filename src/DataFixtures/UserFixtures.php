@@ -6,8 +6,9 @@ use App\Entity\User;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
+use Doctrine\Bundle\FixturesBundle\FixtureGroupInterface;
 
-class UserFixtures extends Fixture
+class UserFixtures extends Fixture implements FixtureGroupInterface
 {
     
         private $encoder;
@@ -26,4 +27,13 @@ class UserFixtures extends Fixture
 
         $manager->flush();
     }
+    public static function getGroups(): array
+
+    {
+        return ['group1'];
+
+    }
+
 }
+
+
