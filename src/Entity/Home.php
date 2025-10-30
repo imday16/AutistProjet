@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\HomeRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -20,8 +22,19 @@ class Home
     #[ORM\Column(type: Types::TEXT)]
     private ?string $texte = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $carousels = null;
+    /**
+     * @var Collection<int, Carousel>
+     */
+    #[ORM\ManyToMany(targetEntity: Carousel::class, inversedBy: 'homes')]
+    private Collection $carousels;
+
+    #[ORM\Column]
+    private ?bool $isActive = null;
+
+    public function __construct()
+    {
+        $this->carousels = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -52,15 +65,41 @@ class Home
         return $this;
     }
 
-    public function getCarousels(): ?string
+    /**
+     * @return Collection<int, Carousel>
+     */
+    public function getCarousels(): Collection
     {
         return $this->carousels;
     }
 
-    public function setCarousels(string $carousels): static
+    public function addCarousel(Carousel $carousel): static
     {
-        $this->carousels = $carousels;
+        if (!$this->carousels->contains($carousel)) {
+            $this->carousels->add($carousel);
+        }
 
         return $this;
     }
+
+    public function removeCarousel(Carousel $carousel): static
+    {
+        $this->carousels->removeElement($carousel);
+
+        return $this;
+    }
+
+    public function isActive(): ?bool
+    {
+        return $this->isActive;
+    }
+
+    public function setIsActive(bool $isActive): static
+    {
+        $this->isActive = $isActive;
+
+        return $this;
+    }
+
+
 }

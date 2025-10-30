@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\CarouselRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
@@ -29,8 +31,19 @@ class Carousel
     #[ORM\Column(length: 255)]
     private ?string $imageName = null;
 
-        #[ORM\Column(nullable: true)]
+    #[ORM\Column(nullable: true)]
     private ?\DateTimeImmutable $updatedAt = null;
+
+    /**
+     * @var Collection<int, Home>
+     */
+    #[ORM\ManyToMany(targetEntity: Home::class, mappedBy: 'carousels')]
+    private Collection $homes;
+
+    public function __construct()
+    {
+        $this->homes = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -105,6 +118,33 @@ class Carousel
     public function setUpdatedAt(?\DateTimeImmutable $updatedAt): static
     {
         $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Home>
+     */
+    public function getHomes(): Collection
+    {
+        return $this->homes;
+    }
+
+    public function addHome(Home $home): static
+    {
+        if (!$this->homes->contains($home)) {
+            $this->homes->add($home);
+            $home->addCarousel($this);
+        }
+
+        return $this;
+    }
+
+    public function removeHome(Home $home): static
+    {
+        if ($this->homes->removeElement($home)) {
+            $home->removeCarousel($this);
+        }
 
         return $this;
     }

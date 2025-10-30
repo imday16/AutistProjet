@@ -3,18 +3,143 @@
 {% block title %}Hello HomeController!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+ <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Accompagner les parents d'enfants autistes</h1>
+            <p>Des ressources, des conseils et une communauté pour vous soutenir dans votre parcours avec votre enfant autiste.</p>
+            <a href="#" class="cta-button">Découvrir nos ressources</a>
+        </div>
+    </section>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <!-- Mission Section -->
+    <section class="mission">
+        <div class="container">
+            <h2 class="section-title">Notre mission</h2>
+            <div class="mission-content">
+                <p>Nous sommes dédiés à soutenir les parents d'enfants autistes en fournissant des informations fiables, des ressources pratiques et un espace de partage bienveillant. Notre objectif est de vous aider à mieux comprendre l'autisme et à trouver des solutions adaptées au quotidien pour votre enfant.</p>
+            </div>
+        </div>
+    </section>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>C:/xampp/htdocs/Symfony/Autist/autist_directory/src/Controller/HomeController.php</code></li>
-        <li>Your template at <code>C:/xampp/htdocs/Symfony/Autist/autist_directory/templates/home/index.html.twig</code></li>
-    </ul>
-</div>
+    <!-- Resources Section -->
+    <section class="resources">
+        <div class="container">
+            <h2 class="section-title">Nos ressources</h2>
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <div class="card-header">
+                        <i>📚</i>
+                    </div>
+                    <div class="card-body">
+                        <h3>Comprendre l'autisme</h3>
+                        <p>Informations et guides pour mieux comprendre les troubles du spectre autistique.</p>
+                    </div>
+                </div>
+                <div class="resource-card">
+                    <div class="card-header">
+                        <i>🧩</i>
+                    </div>
+                    <div class="card-body">
+                        <h3>Outils pratiques</h3>
+                        <p>Des solutions concrètes pour faciliter le quotidien de votre enfant.</p>
+                    </div>
+                </div>
+                <div class="resource-card">
+                    <div class="card-header">
+                        <i>👨‍👩‍👧‍👦</i>
+                    </div>
+                    <div class="card-body">
+                        <h3>Soutien familial</h3>
+                        <p>Ressources pour les parents et la fratrie des enfants autistes.</p>
+                    </div>
+                </div>
+                <div class="resource-card">
+                    <div class="card-header">
+                        <i>🏫</i>
+                    </div>
+                    <div class="card-body">
+                        <h3>Éducation adaptée</h3>
+                        <p>Conseils et méthodes pour l'apprentissage et la scolarisation.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">Témoignages</h2>
+            <div class="testimonial-card">
+                <p class="testimonial-text">Les ressources et la communauté que j'ai trouvées sur ce site ont complètement changé notre approche avec notre fils. Nous avons maintenant des outils concrets et un soutien qui nous aide au quotidien.</p>
+                <div class="testimonial-author">
+                    <div class="author-info">
+                        <div class="author-name">Marie L.</div>
+                        <div class="author-role">Maman de Lucas, 7 ans</div>
+                    </div>
+                </div>
+            </div>
+            <a href="#" class="testimonial-link">Découvrir plus de témoignages</a>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="blog">
+        <div class="container">
+            <h2 class="section-title">Actualités et conseils</h2>
+            <div class="blog-grid">
+                <div class="blog-card">
+                    <div class="blog-image" style="background-color: var(--primary);"></div>
+                    <div class="blog-content">
+                        <div class="blog-date">12 juin 2025</div>
+                        <h3 class="blog-title">Les nouvelles approches sensorielles pour les enfants autistes</h3>
+                        <p class="blog-excerpt">Découvrez les dernières recherches sur les thérapies sensorielles et comment les adapter à la maison...</p>
+                        <a href="#" class="read-more">Lire la suite</a>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <div class="blog-image" style="background-color: var(--secondary);"></div>
+                    <div class="blog-content">
+                        <div class="blog-date">5 juin 2025</div>
+                        <h3 class="blog-title">Communiquer efficacement avec votre enfant autiste</h3>
+                        <p class="blog-excerpt">Stratégies et outils pour établir une communication adaptée aux besoins spécifiques de votre enfant...</p>
+                        <a href="#" class="read-more">Lire la suite</a>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <div class="blog-image" style="background-color: var(--accent);"></div>
+                    <div class="blog-content">
+                        <div class="blog-date">28 mai 2025</div>
+                        <h3 class="blog-title">Préparer la rentrée scolaire : guide pour les parents</h3>
+                        <p class="blog-excerpt">Conseils pratiques pour faciliter la transition vers une nouvelle année scolaire pour votre enfant...</p>
+                        <a href="#" class="read-more">Lire la suite</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact">
+        <div class="container">
+            <h2 class="section-title">Contactez-nous</h2>
+            <div class="contact-form">
+                <div class="form-group">
+                    <label for="name">Nom</label>
+                    <input type="text" id="name" class="form-control" placeholder="Votre nom">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" class="form-control" placeholder="Votre email">
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" class="form-control" rows="4" placeholder="Votre message"></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Envoyer</button>
+            </div>
+        </div>
+    </section>
+
 {% endblock %}
