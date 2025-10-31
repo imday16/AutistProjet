@@ -23,7 +23,7 @@ class CarouselType extends AbstractType
             ->add('texte', TextareaType::class,['label'=>'texte','required'=> false])
             ->add('imageFile', FileType::class,['label'=>'Image', 'required'=> true])
             ->remove('updatedAt', null, ['widget' => 'single_text'])
-            ->add('homes', EntityType::class, ["class"=>Home::class, "label"=>"homes","multiple"=>true, "attr"=>["class"=>"select2"]])
+            ->add('homes', EntityType::class, ["class"=>Home::class, "label"=>"homes","multiple"=>true, "attr"=>["class"=>"select2"],'choice_label' => 'titre'])
         ;
     }
 
