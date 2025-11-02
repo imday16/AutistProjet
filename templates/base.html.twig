@@ -21,7 +21,7 @@
             <nav>
                 <ul>
                     <li><a href="{{ path('app_home') }}" class="active">Accueil</a></li>
-                    <li><a href="#">Comprendre</a></li>
+                    <li><a href="{{ path('app_informations') }}">Comprendre</a></li>
                     <li><a href="#">Témoignages</a></li>
                     <li><a href="#">Ressources</a></li>
                     <li><a href="#">Contact</a></li>
@@ -32,6 +32,16 @@
             <button class="search-btn">Rechercher</button>
         </div>
     </header>
+
+    {# read and display several types of flash messages #}
+    {% for label, messages in app.flashes(['success', 'warning']) %}
+        {% for message in messages %}
+            <div class="flash-{{ label }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+
         {% block body %}{% endblock %}
   <!-- Footer -->
     <footer>

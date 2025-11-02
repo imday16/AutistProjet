@@ -1,0 +1,224 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello InformationsController!{% endblock %}
+
+{% block body %}
+ <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="#">Accueil</a> <span>></span> <a href="#">Comprendre</a> <span>></span> Qu'est-ce que l'autisme ?
+            </div>
+            <h1 class="page-title">Qu'est-ce que l'autisme ?</h1>
+            <p class="page-description">Comprendre les troubles du spectre de l'autisme, leurs manifestations et les approches actuelles pour accompagner les enfants autistes.</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container main-content">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="toc">
+                <h3 class="toc-title">Dans cet article</h3>
+                <ul class="toc-list">
+                    <li><a href="#definition" class="active">Définition de l'autisme</a></li>
+                    <li><a href="#signes" class="sub-item">Signes et manifestations</a></li>
+                    <li><a href="#diagnostic">Le diagnostic</a></li>
+                    <li><a href="#approches">Approches thérapeutiques</a></li>
+                    <li><a href="#quotidien">Au quotidien</a></li>
+                    <li><a href="#ressources">Ressources utiles</a></li>
+                </ul>
+            </div>
+            <div class="resources-box">
+                <h3 class="resources-title">Ressources complémentaires</h3>
+                <ul class="resources-list">
+                    <li><a href="#"><i>📄</i> Guide pour les parents</a></li>
+                    <li><a href="#"><i>🎬</i> Vidéos explicatives</a></li>
+                    <li><a href="#"><i>📚</i> Livres recommandés</a></li>
+                    <li><a href="#"><i>🔗</i> Sites spécialisés</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Content -->
+        <main class="content">
+            <article class="article">
+                <section id="definition" class="article-section">
+                    <h2>Définition de l'autisme</h2>
+                    <p>L'autisme, ou trouble du spectre de l'autisme (TSA), est un trouble neurodéveloppemental qui affecte la façon dont une personne perçoit et socialise avec les autres, causant des problèmes d'interaction sociale et de communication. Le trouble comprend également des schémas de comportement restreints et répétitifs. Le terme "spectre" dans le trouble du spectre de l'autisme fait référence à la large gamme de symptômes et de niveaux de sévérité.</p>
+                    
+                    <p>Les troubles du spectre de l'autisme commencent dans la petite enfance et persistent généralement tout au long de la vie. Bien que les symptômes et leur sévérité puissent varier, ils affectent généralement la capacité d'une personne à fonctionner dans l'école, le travail et d'autres domaines de la vie.</p>
+                    
+                    <div class="highlight-box">
+                        <h4>Points clés à retenir</h4>
+                        <ul>
+                            <li>L'autisme est un trouble neurodéveloppemental qui affecte la communication et le comportement</li>
+                            <li>Il s'agit d'un "spectre" car les manifestations varient considérablement d'une personne à l'autre</li>
+                            <li>Les signes apparaissent généralement avant l'âge de 3 ans</li>
+                            <li>L'autisme n'est pas une maladie mais une différence neurologique</li>
+                        </ul>
+                    </div>
+                    
+                    <h3 id="signes">Signes et manifestations</h3>
+                    <p>Les signes de l'autisme se manifestent généralement avant l'âge de trois ans et peuvent varier considérablement d'un enfant à l'autre. Voici les principaux domaines où des différences peuvent être observées :</p>
+                    
+                    <h4>Communication sociale</h4>
+                    <ul>
+                        <li>Difficulté à établir ou maintenir un contact visuel</li>
+                        <li>Tendance à ne pas répondre à son nom ou à sembler ne pas entendre</li>
+                        <li>Résistance aux câlins et aux marques d'affection</li>
+                        <li>Préférence pour jouer seul, retrait social</li>
+                        <li>Difficulté à comprendre les émotions des autres</li>
+                    </ul>
+                    
+                    <h4>Communication verbale et non verbale</h4>
+                    <ul>
+                        <li>Retard dans l'acquisition du langage ou absence de langage</li>
+                        <li>Perte de mots ou de phrases précédemment acquis</li>
+                        <li>Difficulté à entamer ou maintenir une conversation</li>
+                        <li>Langage inhabituel (écholalie, inversion des pronoms)</li>
+                        <li>Compréhension littérale, difficulté avec l'humour ou les expressions</li>
+                    </ul>
+                    
+                    <h4>Comportements et intérêts</h4>
+                    <ul>
+                        <li>Mouvements répétitifs (balancement, battement des mains)</li>
+                        <li>Routines et rituels rigides, résistance au changement</li>
+                        <li>Fascination pour certains objets ou sujets</li>
+                        <li>Jeu répétitif plutôt qu'imaginatif</li>
+                        <li>Sensibilité inhabituelle aux stimuli sensoriels (sons, textures, lumières)</li>
+                    </ul>
+                </section>
+                
+                <section id="diagnostic" class="article-section">
+                    <h2>Le diagnostic</h2>
+                    <p>Le diagnostic de l'autisme est un processus complexe qui implique généralement plusieurs professionnels et différentes évaluations. Il n'existe pas de test médical unique (comme une analyse de sang) pour diagnostiquer l'autisme. Au lieu de cela, les spécialistes observent le comportement de l'enfant et son développement.</p>
+                    
+                    <div class="highlight-box alt">
+                        <h4>Le parcours diagnostique</h4>
+                        <ol>
+                            <li><strong>Repérage des signes d'alerte</strong> : Souvent par les parents ou les professionnels de la petite enfance</li>
+                            <li><strong>Consultation médicale initiale</strong> : Avec le médecin traitant ou le pédiatre</li>
+                            <li><strong>Orientation vers des spécialistes</strong> : Pédopsychiatre, neuropédiatre, psychologue</li>
+                            <li><strong>Évaluations multidisciplinaires</strong> : Observations cliniques, tests standardisés, évaluations du développement</li>
+                            <li><strong>Synthèse diagnostique</strong> : Établissement du diagnostic et recommandations</li>
+                        </ol>
+                    </div>
+                    
+                    <p>Un diagnostic précoce est crucial car il permet de mettre en place des interventions adaptées le plus tôt possible, ce qui peut significativement améliorer le développement et la qualité de vie de l'enfant.</p>
+                    
+                    <div class="image-container">
+                        <div style="height: 250px; background-color: var(--primary); border-radius: 10px; display: flex; justify-content: center; align-items: center; color: white; font-weight: bold;">Image illustrative : Équipe pluridisciplinaire</div>
+                        <p class="image-caption">Une équipe pluridisciplinaire collabore pour établir un diagnostic précis</p>
+                    </div>
+                </section>
+                
+                <section id="approches" class="article-section">
+                    <h2>Approches thérapeutiques</h2>
+                    <p>Il existe de nombreuses approches pour accompagner les enfants autistes, et il est important de comprendre qu'il n'existe pas de solution unique qui convienne à tous. Les interventions doivent être personnalisées en fonction des besoins spécifiques de chaque enfant.</p>
+                    
+                    <h3>Interventions comportementales et éducatives</h3>
+                    <ul>
+                        <li><strong>ABA (Applied Behavior Analysis)</strong> : Approche structurée visant à développer des compétences spécifiques et à réduire les comportements problématiques</li>
+                        <li><strong>TEACCH</strong> : Programme qui met l'accent sur la structuration visuelle de l'environnement</li>
+                        <li><strong>Early Start Denver Model (ESDM)</strong> : Intervention précoce combinant approches comportementales et développementales</li>
+                        <li><strong>PECS</strong> : Système de communication par échange d'images pour les enfants non verbaux</li>
+                    </ul>
+                    
+                    <h3>Thérapies complémentaires</h3>
+                    <ul>
+                        <li><strong>Orthophonie</strong> : Pour développer les compétences de communication</li>
+                        <li><strong>Ergothérapie</strong> : Pour améliorer les compétences motrices et sensorielles</li>
+                        <li><strong>Psychomotricité</strong> : Pour travailler sur la coordination et la conscience corporelle</li>
+                        <li><strong>Thérapies sensorielles</strong> : Pour aider à gérer les particularités sensorielles</li>
+                    </ul>
+                    
+                    <div class="highlight-box">
+                        <h4>L'importance de l'intervention précoce</h4>
+                        <p>Les recherches montrent que les interventions commencées avant l'âge de 4 ans ont généralement de meilleurs résultats à long terme. La plasticité cérébrale est maximale pendant les premières années de vie, ce qui rend cette période particulièrement propice aux apprentissages.</p>
+                    </div>
+                </section>
+                
+                <section id="quotidien" class="article-section">
+                    <h2>Au quotidien</h2>
+                    <p>Vivre avec un enfant autiste implique souvent d'adapter l'environnement familial et les routines pour répondre à ses besoins spécifiques. Voici quelques stratégies qui peuvent faciliter le quotidien :</p>
+                    
+                    <h3>Structuration de l'environnement</h3>
+                    <ul>
+                        <li>Créer des espaces clairement définis pour différentes activités</li>
+                        <li>Réduire les stimulations sensorielles excessives (bruits, lumières vives)</li>
+                        <li>Utiliser des supports visuels pour clarifier les attentes et les routines</li>
+                        <li>Maintenir une certaine prévisibilité dans l'organisation de la journée</li>
+                    </ul>
+                    
+                    <h3>Communication adaptée</h3>
+                    <ul>
+                        <li>Utiliser un langage clair et concret</li>
+                        <li>Donner des instructions simples, une à la fois</li>
+                        <li>Respecter le temps de traitement de l'information</li>
+                        <li>Mettre en place des outils de communication alternative si nécessaire</li>
+                    </ul>
+                    
+                    <div class="highlight-box alt">
+                        <h4>Témoignage</h4>
+                        <p>"Comprendre que mon fils perçoit le monde différemment a été la clé pour adapter notre quotidien. Les supports visuels et les routines prévisibles ont transformé nos journées, réduisant considérablement son anxiété et nos frustrations mutuelles."</p>
+                        <p style="text-align: right; font-style: italic;">— Sophie, maman de Théo, 6 ans</p>
+                    </div>
+                </section>
+                
+                <section id="ressources" class="article-section">
+                    <h2>Ressources utiles</h2>
+                    <p>De nombreuses ressources sont disponibles pour aider les parents d'enfants autistes. Voici quelques suggestions :</p>
+                    
+                    <h3>Associations et centres de ressources</h3>
+                    <ul>
+                        <li>Centres Ressources Autisme (CRA) : présents dans chaque région</li>
+                        <li>Associations de parents : soutien, partage d'expériences</li>
+                        <li>MDPH : pour les démarches administratives et les aides</li>
+                    </ul>
+                    
+                    <h3>Ressources éducatives</h3>
+                    <ul>
+                        <li>Guides pratiques pour les parents</li>
+                        <li>Outils pédagogiques adaptés</li>
+                        <li>Formations pour les parents</li>
+                    </ul>
+                    
+                    <p>N'hésitez pas à explorer notre section "Ressources" pour découvrir des outils pratiques, des guides et des recommandations de lecture qui pourront vous accompagner dans votre parcours.</p>
+                </section>
+            </article>
+            
+            <!-- Related Articles -->
+            <div class="related-articles">
+                <h2 class="related-title">Articles connexes</h2>
+                <div class="related-grid">
+                    <div class="related-card">
+                        <div class="related-image"></div>
+                        <div class="related-content">
+                            <h3 class="related-title-card">Les approches éducatives adaptées</h3>
+                            <p class="related-excerpt">Découvrez les méthodes éducatives spécifiquement conçues pour les enfants autistes...</p>
+                            <a href="#" class="related-link">Lire l'article</a>
+                        </div>
+                    </div>
+                    <div class="related-card">
+                        <div class="related-image" style="background-color: var(--secondary);"></div>
+                        <div class="related-content">
+                            <h3 class="related-title-card">Gérer les particularités sensorielles</h3>
+                            <p class="related-excerpt">Comprendre et accompagner les sensibilités sensorielles de votre enfant...</p>
+                            <a href="#" class="related-link">Lire l'article</a>
+                        </div>
+                    </div>
+                    <div class="related-card">
+                        <div class="related-image" style="background-color: var(--accent);"></div>
+                        <div class="related-content">
+                            <h3 class="related-title-card">Fratrie et autisme</h3>
+                            <p class="related-excerpt">Comment accompagner les frères et sœurs d'un enfant autiste...</p>
+                            <a href="#" class="related-link">Lire l'article</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+{% endblock %}
