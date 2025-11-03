@@ -1,13 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello InformationsController!{% endblock %}
+{% block title %}Informations sur l'Autisme - Comprendre l'Autisme{% endblock %}
 
 {% block body %}
  <!-- Page Header -->
     <section class="page-header">
         <div class="container">
             <div class="breadcrumb">
-                <a href="#">Accueil</a> <span>></span> <a href="#">Comprendre</a> <span>></span> Qu'est-ce que l'autisme ?
+                <a href="{{ path('app_home') }}">Accueil</a> <span>></span> <a href="{{ path('app_informations') }}">Comprendre</a> <span>></span> Qu'est-ce que l'autisme ?
             </div>
             <h1 class="page-title">Qu'est-ce que l'autisme ?</h1>
             <p class="page-description">Comprendre les troubles du spectre de l'autisme, leurs manifestations et les approches actuelles pour accompagner les enfants autistes.</p>
@@ -183,42 +183,39 @@
                         <li>Outils pédagogiques adaptés</li>
                         <li>Formations pour les parents</li>
                     </ul>
-                    
-                    <p>N'hésitez pas à explorer notre section "Ressources" pour découvrir des outils pratiques, des guides et des recommandations de lecture qui pourront vous accompagner dans votre parcours.</p>
                 </section>
             </article>
             
             <!-- Related Articles -->
-            <div class="related-articles">
+            <section class="related-articles">
                 <h2 class="related-title">Articles connexes</h2>
                 <div class="related-grid">
                     <div class="related-card">
                         <div class="related-image"></div>
                         <div class="related-content">
-                            <h3 class="related-title-card">Les approches éducatives adaptées</h3>
-                            <p class="related-excerpt">Découvrez les méthodes éducatives spécifiquement conçues pour les enfants autistes...</p>
+                            <h3 class="related-title-card">Le rôle de l'orthophoniste</h3>
+                            <p class="related-excerpt">Comment l'orthophonie aide à développer la communication chez les enfants autistes.</p>
                             <a href="#" class="related-link">Lire l'article</a>
                         </div>
                     </div>
                     <div class="related-card">
                         <div class="related-image" style="background-color: var(--secondary);"></div>
                         <div class="related-content">
-                            <h3 class="related-title-card">Gérer les particularités sensorielles</h3>
-                            <p class="related-excerpt">Comprendre et accompagner les sensibilités sensorielles de votre enfant...</p>
+                            <h3 class="related-title-card">Gérer les crises sensorielles</h3>
+                            <p class="related-excerpt">Stratégies pratiques pour aider votre enfant à se réguler lors d'une surcharge sensorielle.</p>
                             <a href="#" class="related-link">Lire l'article</a>
                         </div>
                     </div>
                     <div class="related-card">
                         <div class="related-image" style="background-color: var(--accent);"></div>
                         <div class="related-content">
-                            <h3 class="related-title-card">Fratrie et autisme</h3>
-                            <p class="related-excerpt">Comment accompagner les frères et sœurs d'un enfant autiste...</p>
+                            <h3 class="related-title-card">Les aides financières disponibles</h3>
+                            <p class="related-excerpt">Un aperçu des aides et des démarches administratives pour les familles.</p>
                             <a href="#" class="related-link">Lire l'article</a>
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
         </main>
     </div>
-
 {% endblock %}

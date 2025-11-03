@@ -1,7 +1,124 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ContactController!{% endblock %}
+{% block title %}Contact - Comprendre l'Autisme{% endblock %}
 
 {% block body %}
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">Contactez-nous</h1>
+            <p class="page-description">Nous sommes là pour répondre à vos questions et vous apporter le soutien dont vous avez besoin. N'hésitez pas à nous écrire.</p>
+        </div>
+    </section>
 
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div id="responseMessage" class="response-message"></div>
+            <div class="contact-container">
+                <!-- Contact Form -->
+                <div class="contact-form">
+                    <h3>Envoyez-nous un message</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Nom complet</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Adresse e-mail</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Sujet</label>
+                            <select id="subject" name="subject">
+                                <option value="general">Question générale</option>
+                                <option value="support">Demande de support</option>
+                                <option value="partnership">Partenariat</option>
+                                <option value="testimony">Partage de témoignage</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Votre message</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <div class="form-group checkbox">
+                            <input type="checkbox" id="newsletter" name="newsletter">
+                            <label for="newsletter">Je souhaite m'inscrire à la newsletter</label>
+                        </div>
+                        <button type="submit" class="submit-btn">Envoyer le message</button>
+                    </form>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="contact-info">
+                    <div class="info-card">
+                        <div class="info-icon">✉️</div>
+                        <div class="info-content">
+                            <h4>Par e-mail</h4>
+                            <p>Pour toute question générale ou demande de support.</p>
+                            <a href="mailto:contact@autisme.fr">contact@autisme.fr</a>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">📞</div>
+                        <div class="info-content">
+                            <h4>Par téléphone</h4>
+                            <p>Ligne d'écoute et de soutien (du lundi au vendredi, 9h-17h).</p>
+                            <p>+33 1 23 45 67 89</p>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">📍</div>
+                        <div class="info-content">
+                            <h4>Adresse du siège</h4>
+                            <p>123 Rue de l'Espoir, 75000 Paris, France</p>
+                            <a href="#">Voir sur la carte</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="faq-title">Questions Fréquentes (FAQ)</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Quels sont les délais de réponse ?
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Nous nous efforçons de répondre à tous les e-mails dans un délai de 48 heures ouvrées. Les demandes urgentes sont traitées en priorité.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Puis-je partager mon témoignage ?
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolument ! Nous encourageons le partage d'expériences. Vous pouvez utiliser le formulaire de contact en sélectionnant le sujet "Partage de témoignage" ou nous envoyer directement votre récit par e-mail.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Comment puis-je soutenir votre association ?
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Vous pouvez nous soutenir par un don, en devenant bénévole, ou en partageant nos ressources sur les réseaux sociaux. Chaque geste compte !</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {# Charge le script spécifique à la page de contact (gestion du formulaire et de la FAQ) #}
+    <script src="{{ asset('js/contact.js') }}"></script>
 {% endblock %}

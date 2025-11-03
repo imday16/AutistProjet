@@ -1,0 +1,191 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello BlogController!{% endblock %}
+
+{% block body %}
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">Notre Blog</h1>
+            <p class="page-description">
+                Découvrez nos articles informatifs et nos produits recommandés pour mieux comprendre et accompagner 
+                les enfants autistes. Consultez régulièrement notre blog pour les dernières actualités et ressources.
+            </p>
+        </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="filter-section">
+        <div class="container">
+            <div class="filter-container">
+                <span class="filter-label">Filtrer par :</span>
+                <div class="filter-group">
+                    <button class="filter-tag active">Tous</button>
+                    <button class="filter-tag">Articles</button>
+                    <button class="filter-tag">Produits</button>
+                    <button class="filter-tag">Ressources</button>
+                    <button class="filter-tag">Conseils</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="blog-section">
+        <div class="container">
+            <div class="blog-grid">
+                <!-- Article 1 -->
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <span class="blog-category article">Article</span>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-date">15 octobre 2024</div>
+                        <h3 class="blog-title">Les signes précoces de l'autisme</h3>
+                        <p class="blog-excerpt">Apprenez à reconnaître les premiers signes de l'autisme chez les enfants et l'importance d'une détection précoce...</p>
+                        <div class="blog-footer">
+                            <span class="blog-author">Par Sophie Martin</span>
+                            <a href="#" class="read-more">Lire →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Produit 1 -->
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <span class="blog-category produit">Produit</span>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-date">12 octobre 2024</div>
+                        <h3 class="blog-title">Guide complet pour les parents</h3>
+                        <p class="blog-excerpt">Un guide pratique et complet pour accompagner votre enfant autiste au quotidien. Conseils et stratégies éprouvées...</p>
+                        <div class="blog-footer">
+                            <span class="blog-author">29,99 €</span>
+                            <a href="#" class="read-more">Acheter →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Article 2 -->
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <span class="blog-category article">Article</span>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-date">10 octobre 2024</div>
+                        <h3 class="blog-title">Stratégies de communication efficaces</h3>
+                        <p class="blog-excerpt">Découvrez les meilleures pratiques pour communiquer avec un enfant autiste et améliorer vos interactions...</p>
+                        <div class="blog-footer">
+                            <span class="blog-author">Par Dr. Jean Dupont</span>
+                            <a href="#" class="read-more">Lire →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Produit 2 -->
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <span class="blog-category produit">Produit</span>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-date">8 octobre 2024</div>
+                        <h3 class="blog-title">Kit de cartes visuelles adaptées</h3>
+                        <p class="blog-excerpt">Ensemble de cartes visuelles colorées et adaptées pour faciliter la communication et les routines quotidiennes...</p>
+                        <div class="blog-footer">
+                            <span class="blog-author">19,99 €</span>
+                            <a href="#" class="read-more">Acheter →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Article 3 -->
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <span class="blog-category article">Article</span>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-date">5 octobre 2024</div>
+                        <h3 class="blog-title">Gérer les crises et les moments difficiles</h3>
+                        <p class="blog-excerpt">Des techniques pratiques et bienveillantes pour accompagner votre enfant lors des moments de crise...</p>
+                        <div class="blog-footer">
+                            <span class="blog-author">Par Marie Leclerc</span>
+                            <a href="#" class="read-more">Lire →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Produit 3 -->
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <span class="blog-category produit">Produit</span>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-date">3 octobre 2024</div>
+                        <h3 class="blog-title">Jouets sensoriels spécialisés</h3>
+                        <p class="blog-excerpt">Collection de jouets sensoriels conçus pour stimuler et apaiser les enfants autistes. Sécurisés et testés...</p>
+                        <div class="blog-footer">
+                            <span class="blog-author">À partir de 14,99 €</span>
+                            <a href="#" class="read-more">Acheter →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Article 4 -->
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <span class="blog-category article">Article</span>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-date">1er octobre 2024</div>
+                        <h3 class="blog-title">L'importance de la routine et de la structure</h3>
+                        <p class="blog-excerpt">Comprendre pourquoi les routines sont essentielles pour les enfants autistes et comment les mettre en place...</p>
+                        <div class="blog-footer">
+                            <span class="blog-author">Par Pierre Moreau</span>
+                            <a href="#" class="read-more">Lire →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Produit 4 -->
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <span class="blog-category produit">Produit</span>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-date">28 septembre 2024</div>
+                        <h3 class="blog-title">Planificateur visuel quotidien</h3>
+                        <p class="blog-excerpt">Outil pratique pour organiser la journée de votre enfant avec des pictogrammes clairs et attrayants...</p>
+                        <div class="blog-footer">
+                            <span class="blog-author">24,99 €</span>
+                            <a href="#" class="read-more">Acheter →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Article 5 -->
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <span class="blog-category article">Article</span>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-date">25 septembre 2024</div>
+                        <h3 class="blog-title">Intégration scolaire : conseils et ressources</h3>
+                        <p class="blog-excerpt">Comment préparer l'entrée à l'école et travailler avec les enseignants pour une intégration réussie...</p>
+                        <div class="blog-footer">
+                            <span class="blog-author">Par Claire Bernard</span>
+                            <a href="#" class="read-more">Lire →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination">
+                <span class="active">1</span>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <a href="#">Suivant →</a>
+            </div>
+        </div>
+    </section>
+{% endblock %}

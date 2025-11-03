@@ -1,0 +1,219 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Témoignages et partages d'expériences - Comprendre l'Autisme{% endblock %}
+
+{% block body %}
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">Témoignages et partages d'expériences</h1>
+            <p class="page-description">Découvrez les récits de parents qui partagent leur quotidien, leurs défis et leurs victoires avec leurs enfants autistes.</p>
+            <a href="#" class="cta-button">Partager mon témoignage</a>
+        </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="filter-section">
+        <div class="container">
+            <div class="filter-container">
+                <div class="filter-label">Filtrer par :</div>
+                <div class="filter-group">
+                    <div class="filter-tag active">Tous</div>
+                    <div class="filter-tag">Diagnostic</div>
+                    <div class="filter-tag">Vie quotidienne</div>
+                    <div class="filter-tag">Scolarité</div>
+                    <div class="filter-tag">Thérapies</div>
+                    <div class="filter-tag">Fratrie</div>
+                </div>
+            </div>
+            <div class="filter-container" style="margin-top: 15px;">
+                <div class="filter-label">Âge de l'enfant :</div>
+                <div class="filter-group">
+                    <div class="filter-tag active">Tous âges</div>
+                    <div class="filter-tag">0-3 ans</div>
+                    <div class="filter-tag">4-6 ans</div>
+                    <div class="filter-tag">7-12 ans</div>
+                    <div class="filter-tag">13-18 ans</div>
+                    <div class="filter-tag">Adultes</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">ML</div>
+                        <div class="testimonial-author">
+                            <h3>Marie L.</h3>
+                            <p>Maman de Lucas, 7 ans</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">Les routines visuelles ont complètement transformé nos matins. Avant, c'était le chaos total pour préparer Lucas pour l'école. Maintenant, avec son tableau d'activités, il sait exactement ce qu'il doit faire et dans quel ordre.</p>
+                        <div class="testimonial-tags">
+                            <span class="testimonial-tag">Vie quotidienne</span>
+                            <span class="testimonial-tag">Outils visuels</span>
+                        </div>
+                    </div>
+                    <div class="testimonial-footer">
+                        <div class="testimonial-date">15 juin 2025</div>
+                        <a href="#" class="read-more">Lire la suite</a>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-header" style="background-color: var(--secondary);">
+                        <div class="testimonial-avatar">TD</div>
+                        <div class="testimonial-author">
+                            <h3>Thomas D.</h3>
+                            <p>Papa de Léa, 5 ans</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">Le diagnostic a été un moment difficile mais aussi libérateur. Comprendre enfin pourquoi Léa réagissait différemment nous a permis de mieux l'accompagner et d'adapter notre environnement familial à ses besoins.</p>
+                        <div class="testimonial-tags">
+                            <span class="testimonial-tag">Diagnostic</span>
+                            <span class="testimonial-tag">Acceptation</span>
+                        </div>
+                    </div>
+                    <div class="testimonial-footer">
+                        <div class="testimonial-date">10 juin 2025</div>
+                        <a href="#" class="read-more">Lire la suite</a>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">SB</div>
+                        <div class="testimonial-author">
+                            <h3>Sophie B.</h3>
+                            <p>Maman de Mathis, 10 ans</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">Trouver la bonne école a été un parcours du combattant. Après plusieurs échecs, nous avons enfin trouvé un établissement avec une équipe formée et bienveillante. Mathis s'épanouit maintenant et progresse à son rythme.</p>
+                        <div class="testimonial-tags">
+                            <span class="testimonial-tag">Scolarité</span>
+                            <span class="testimonial-tag">Inclusion</span>
+                        </div>
+                    </div>
+                    <div class="testimonial-footer">
+                        <div class="testimonial-date">5 juin 2025</div>
+                        <a href="#" class="read-more">Lire la suite</a>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-header" style="background-color: var(--secondary);">
+                        <div class="testimonial-avatar">JR</div>
+                        <div class="testimonial-author">
+                            <h3>Julie R.</h3>
+                            <p>Maman d'Antoine, 3 ans</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">L'intervention précoce a fait toute la différence pour Antoine. En seulement six mois de thérapie ABA et d'orthophonie, il a commencé à communiquer avec des images et même à dire quelques mots.</p>
+                        <div class="testimonial-tags">
+                            <span class="testimonial-tag">Thérapies</span>
+                            <span class="testimonial-tag">Intervention précoce</span>
+                        </div>
+                    </div>
+                    <div class="testimonial-footer">
+                        <div class="testimonial-date">1 juin 2025</div>
+                        <a href="#" class="read-more">Lire la suite</a>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">PL</div>
+                        <div class="testimonial-author">
+                            <h3>Pierre L.</h3>
+                            <p>Papa de Théo, 8 ans</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">Les vacances étaient un vrai défi pour notre famille. Nous avons appris à les préparer minutieusement : photos des lieux à l'avance, planning visuel, trousse sensorielle... Maintenant, nous pouvons tous profiter de ces moments.</p>
+                        <div class="testimonial-tags">
+                            <span class="testimonial-tag">Vie quotidienne</span>
+                            <span class="testimonial-tag">Loisirs</span>
+                        </div>
+                    </div>
+                    <div class="testimonial-footer">
+                        <div class="testimonial-date">28 mai 2025</div>
+                        <a href="#" class="read-more">Lire la suite</a>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-header" style="background-color: var(--secondary);">
+                        <div class="testimonial-avatar">CM</div>
+                        <div class="testimonial-author">
+                            <h3>Claire M.</h3>
+                            <p>Maman de Zoé, 6 ans et Léo, 9 ans</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">Accompagner Léo, le frère de Zoé qui est autiste, a été tout aussi important. Nous avons mis en place des moments privilégiés avec lui et trouvé un groupe de parole pour fratrie qui l'aide beaucoup.</p>
+                        <div class="testimonial-tags">
+                            <span class="testimonial-tag">Fratrie</span>
+                            <span class="testimonial-tag">Équilibre familial</span>
+                        </div>
+                    </div>
+                    <div class="testimonial-footer">
+                        <div class="testimonial-date">25 mai 2025</div>
+                        <a href="#" class="read-more">Lire la suite</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Pagination -->
+            <div class="pagination">
+                <a href="#" class="pagination-item active">1</a>
+                <a href="#" class="pagination-item">2</a>
+                <a href="#" class="pagination-item">3</a>
+                <a href="#" class="pagination-item">4</a>
+                <a href="#" class="pagination-item">></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Testimonial -->
+    <section class="container">
+        <div class="featured-testimonial">
+            <div class="featured-header">
+                <div class="featured-avatar">NP</div>
+                <div class="featured-author">
+                    <h3>Nicolas P.</h3>
+                    <p>Papa d'Emma, 12 ans</p>
+                </div>
+            </div>
+            <div class="featured-content">
+                <p class="featured-text">Notre parcours avec Emma a été semé d'embûches, mais aussi de moments de joie intense. Le diagnostic à 4 ans a été un choc, suivi d'une période de déni, puis d'acceptation. Nous avons dû réapprendre à communiquer, à comprendre son monde.</p>
+                <p class="featured-text">La méthode TEACCH a été une révélation pour nous. Structurer l'environnement d'Emma avec des supports visuels lui a permis de gagner en autonomie et de réduire considérablement son anxiété. Son école a été un partenaire formidable, adaptant les apprentissages à son rythme.</p>
+                <p class="featured-text">Ce qui me rend le plus fier aujourd'hui, c'est de voir comment Emma a développé ses propres stratégies pour faire face aux défis du quotidien. Elle nous a appris la patience, la persévérance et à célébrer chaque petit progrès. Son regard unique sur le monde nous enrichit chaque jour.</p>
+                <div class="featured-tags">
+                    <span class="featured-tag">Parcours</span>
+                    <span class="featured-tag">Méthode TEACCH</span>
+                    <span class="featured-tag">Scolarité</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Section -->
+    <section class="community-section">
+        <div class="container">
+            <h2 class="community-title">Rejoignez notre communauté</h2>
+            <p class="community-description">Partagez votre expérience, posez vos questions et trouvez du soutien auprès d'autres parents qui comprennent ce que vous vivez.</p>
+            <div class="community-buttons">
+                <a href="#" class="community-btn primary">Rejoindre le forum</a>
+                <a href="#" class="community-btn secondary">Groupes de parole</a>
+            </div>
+        </div>
+    </section>
+{% endblock %}

@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title %}Accueil - Comprendre l'Autisme{% endblock %}
 
 {% block body %}
  <!-- Hero Section -->
@@ -8,7 +8,7 @@
         <div class="container">
             <h1>Accompagner les parents d'enfants autistes</h1>
             <p>Des ressources, des conseils et une communauté pour vous soutenir dans votre parcours avec votre enfant autiste.</p>
-            <a href="#" class="cta-button">Découvrir nos ressources</a>
+            <a href="{{ path('app_resources') }}" class="cta-button">Découvrir nos ressources</a>
         </div>
     </section>
 
@@ -80,7 +80,7 @@
                     </div>
                 </div>
             </div>
-            <a href="#" class="testimonial-link">Découvrir plus de témoignages</a>
+            <a href="{{ path('app_testimony') }}" class="testimonial-link">Découvrir plus de témoignages</a>
         </div>
     </section>
 
@@ -141,5 +141,4 @@
             </div>
         </div>
     </section>
-
 {% endblock %}

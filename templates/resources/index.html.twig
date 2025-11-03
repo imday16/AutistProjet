@@ -1,0 +1,245 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ressources et Produits - Comprendre l'Autisme{% endblock %}
+
+{% block body %}
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">Ressources et produits adaptés</h1>
+            <p class="page-description">Une sélection de produits et outils évalués par notre communauté pour faciliter le quotidien des enfants autistes et de leurs familles.</p>
+        </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="filter-section">
+        <div class="container">
+            <div class="filter-container">
+                <div class="filter-label">Catégories :</div>
+                <div class="filter-group">
+                    <div class="filter-tag active">Tous</div>
+                    <div class="filter-tag">Outils sensoriels</div>
+                    <div class="filter-tag">Communication</div>
+                    <div class="filter-tag">Apprentissage</div>
+                    <div class="filter-tag">Sécurité</div>
+                    <div class="filter-tag">Vie quotidienne</div>
+                </div>
+            </div>
+            <div class="filter-container" style="margin-top: 15px;">
+                <div class="filter-label">Âge :</div>
+                <div class="filter-group">
+                    <div class="filter-tag active">Tous âges</div>
+                    <div class="filter-tag">0-3 ans</div>
+                    <div class="filter-tag">4-6 ans</div>
+                    <div class="filter-tag">7-12 ans</div>
+                    <div class="filter-tag">13+ ans</div>
+                </div>
+            </div>
+            <div class="filter-container" style="margin-top: 15px;">
+                <div class="filter-label">Note :</div>
+                <div class="filter-group">
+                    <div class="filter-tag active">Toutes</div>
+                    <div class="filter-tag">★★★★★</div>
+                    <div class="filter-tag">★★★★☆ et plus</div>
+                    <div class="filter-tag">★★★☆☆ et plus</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products-section">
+        <div class="container">
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <div class="product-category">Outils sensoriels</div>
+                        <div class="product-rating">★★★★★ <span>5.0</span></div>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Couverture lestée adaptative</h3>
+                        <p class="product-description">Couverture thérapeutique qui aide à réduire l'anxiété et améliorer le sommeil grâce à une pression profonde apaisante.</p>
+                        <div class="product-tags">
+                            <span class="product-tag">Sommeil</span>
+                            <span class="product-tag">Anxiété</span>
+                            <span class="product-tag">Sensoriel</span>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-reviews">32 avis</div>
+                            <a href="#" class="product-link">Voir les détails</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image" style="background-color: var(--secondary);">
+                        <div class="product-category">Communication</div>
+                        <div class="product-rating">★★★★☆ <span>4.7</span></div>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Tablette de communication visuelle</h3>
+                        <p class="product-description">Application et support adaptés pour faciliter la communication par images pour les enfants non verbaux ou avec langage limité.</p>
+                        <div class="product-tags">
+                            <span class="product-tag">CAA</span>
+                            <span class="product-tag">Non-verbal</span>
+                            <span class="product-tag">Numérique</span>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-reviews">28 avis</div>
+                            <a href="#" class="product-link">Voir les détails</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image" style="background-color: var(--accent);">
+                        <div class="product-category">Apprentissage</div>
+                        <div class="product-rating">★★★★☆ <span>4.5</span></div>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Kit d'emploi du temps visuel</h3>
+                        <p class="product-description">Système complet pour créer des emplois du temps visuels personnalisés, facilitant la compréhension des routines quotidiennes.</p>
+                        <div class="product-tags">
+                            <span class="product-tag">Structure</span>
+                            <span class="product-tag">Routine</span>
+                            <span class="product-tag">Autonomie</span>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-reviews">45 avis</div>
+                            <a href="#" class="product-link">Voir les détails</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image" style="background-color: var(--accent-alt);">
+                        <div class="product-category">Sécurité</div>
+                        <div class="product-rating">★★★★★ <span>4.9</span></div>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Bracelet d'identification GPS</h3>
+                        <p class="product-description">Bracelet confortable et discret avec fonction de géolocalisation pour les enfants ayant tendance à s'éloigner ou se perdre.</p>
+                        <div class="product-tags">
+                            <span class="product-tag">Sécurité</span>
+                            <span class="product-tag">Localisation</span>
+                            <span class="product-tag">Extérieur</span>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-reviews">37 avis</div>
+                            <a href="#" class="product-link">Voir les détails</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">
+                        <div class="product-category">Vie quotidienne</div>
+                        <div class="product-rating">★★★★☆ <span>4.3</span></div>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Set de couverts adaptés</h3>
+                        <p class="product-description">Couverts ergonomiques conçus pour les enfants ayant des difficultés de motricité fine ou des sensibilités tactiles.</p>
+                        <div class="product-tags">
+                            <span class="product-tag">Alimentation</span>
+                            <span class="product-tag">Motricité</span>
+                            <span class="product-tag">Autonomie</span>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-reviews">19 avis</div>
+                            <a href="#" class="product-link">Voir les détails</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image" style="background-color: var(--secondary);">
+                        <div class="product-category">Outils sensoriels</div>
+                        <div class="product-rating">★★★★☆ <span>4.6</span></div>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Casque anti-bruit confortable</h3>
+                        <p class="product-description">Casque léger et ajustable qui réduit les bruits environnants pour les enfants sensibles aux stimulations auditives.</p>
+                        <div class="product-tags">
+                            <span class="product-tag">Audition</span>
+                            <span class="product-tag">Hypersensibilité</span>
+                            <span class="product-tag">Confort</span>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-reviews">41 avis</div>
+                            <a href="#" class="product-link">Voir les détails</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Product -->
+    <section class="container">
+        <div class="featured-product">
+            <h2 class="featured-product-title">Produit recommandé par notre communauté</h2>
+            <div class="featured-product-content">
+                <div class="featured-product-image"></div>
+                <div class="featured-product-details">
+                    <div class="featured-product-header">
+                        <h3>Kit sensoriel multi-textures</h3>
+                        <div class="featured-product-rating">★★★★★ <span>4.9/5</span> (53 avis)</div>
+                        <div class="featured-product-category">Catégorie : Outils sensoriels | Âge : 3-12 ans</div>
+                    </div>
+                    <div class="featured-product-description">
+                        <p>Ce kit complet contient une variété d'outils sensoriels soigneusement sélectionnés pour aider les enfants à explorer différentes textures et sensations. Idéal pour la régulation sensorielle, la concentration et le développement tactile.</p>
+                        <p>Le kit comprend des balles texturées, des tubes sensoriels liquides, des jouets à manipuler, et un guide d'utilisation pour les parents et professionnels.</p>
+                    </div>
+                    <div class="featured-product-testimonial">
+                        <p>Ce kit a été une véritable révélation pour ma fille. Elle l'utilise quotidiennement pour se calmer quand elle se sent submergée. Les différentes textures lui permettent de trouver exactement ce dont elle a besoin selon le moment. Un investissement qui a vraiment amélioré notre quotidien.</p>
+                        <div class="testimonial-author">- Isabelle, maman de Chloé (8 ans)</div>
+                    </div>
+                    <div class="featured-product-footer">
+                        <div class="featured-product-price">49,90 €</div>
+                        <a href="#" class="featured-product-btn">Voir les avis complets</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Usage Tips Section -->
+    <section class="tips-section">
+        <div class="container">
+            <div class="tips-container">
+                <h2 class="tips-title">Conseils d'utilisation</h2>
+                <div class="tips-grid">
+                    <div class="tip-card">
+                        <div class="tip-icon">1</div>
+                        <div class="tip-content">
+                            <h4>Introduire progressivement</h4>
+                            <p>Présentez les nouveaux produits graduellement, en respectant le rythme de votre enfant et en observant ses réactions.</p>
+                        </div>
+                    </div>
+                    <div class="tip-card">
+                        <div class="tip-icon">2</div>
+                        <div class="tip-content">
+                            <h4>Personnaliser l'utilisation</h4>
+                            <p>Adaptez l'utilisation des produits aux besoins spécifiques de votre enfant, chaque enfant autiste ayant un profil sensoriel unique.</p>
+                        </div>
+                    </div>
+                    <div class="tip-card">
+                        <div class="tip-icon">3</div>
+                        <div class="tip-content">
+                            <h4>Créer une routine</h4>
+                            <p>Intégrez les outils dans une routine prévisible pour maximiser leur efficacité et aider votre enfant à anticiper leur utilisation.</p>
+                        </div>
+                    </div>
+                    <div class="tip-card">
+                        <div class="tip-icon">4</div>
+                        <div class="tip-content">
+                            <h4>Impliquer les professionnels</h4>
+                            <p>Consultez les thérapeutes de votre enfant pour des conseils personnalisés sur l'utilisation optimale des produits adaptés.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
