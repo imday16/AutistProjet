@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello SensoController!{% endblock %}
+
+{% block body %}
+<main>
+        <div class="container">
+            <div class="main-content">
+                
+                <!-- Colonne de gauche : Liste des gestes sensoriels (Sidebar) -->
+                <div class="sidebar">
+                    <h2>Gestes Sensoriels (Stims)</h2>
+                    <ul class="stims-list" id="stims-list">
+                        <!-- Les éléments de la liste seront générés ici par JavaScript -->
+                        <li data-stim-id="1" class="active">Flapping des mains</li>
+                        <li data-stim-id="2">Balancement du corps</li>
+                        <li data-stim-id="3">Frottement des objets</li>
+                        <li data-stim-id="4">Fixation visuelle</li>
+                        <li data-stim-id="5">Tapoter des doigts</li>
+                        <li data-stim-id="6">Écholalie (répétition de mots)</li>
+                        <li data-stim-id="7">Sautillement</li>
+                        <li data-stim-id="8">Mordre ou mâcher des objets</li>
+                        <li data-stim-id="9">Couvrir les oreilles</li>
+                        <li data-stim-id="10">Regarder les lumières</li>
+                        <li data-stim-id="11">Faire tourner des objets</li>
+                        <li data-stim-id="12">Faire des bruits répétitifs</li>
+                        <li data-stim-id="13">Marcher sur la pointe des pieds</li>
+                        <li data-stim-id="14">Se gratter la peau</li>
+                        <li data-stim-id="15">Sentir des objets</li>
+                        <!-- Ajoutez d'autres gestes ici pour simuler les "centaines" -->
+                    </ul>
+                </div>
+
+                <!-- Colonne de droite : Détails du geste sensoriel (Details Panel) -->
+                <div class="details-panel" id="details-panel">
+                    <!-- Le contenu sera mis à jour par JavaScript -->
+                    <h1 id="stim-title">Flapping des mains</h1>
+                    
+                    <div class="explanation">
+                        <h2>Explication</h2>
+                        <p id="stim-explanation">
+                            Le "flapping" des mains est un mouvement répétitif et rythmique des mains ou des bras. Il est souvent associé à une excitation intense (positive ou négative) ou à une surcharge sensorielle. C'est une forme d'auto-régulation qui aide l'enfant à gérer ses émotions et à filtrer les stimuli externes.
+                        </p>
+                    </div>
+
+                    <div class="suggestions">
+                        <h2>Suggestions et Solutions</h2>
+                        <ul id="stim-suggestions">
+                            <li>Proposer des alternatives motrices : balles anti-stress, fidget toys, élastiques à mâcher.</li>
+                            <li>Identifier le déclencheur : Est-ce l'excitation, l'anxiété, ou l'ennui ? Adapter l'environnement en conséquence.</li>
+                            <li>Utiliser des activités de pression profonde : serrer un coussin, faire des "sandwichs" corporels (pression douce).</li>
+                            <li>Encourager le mouvement dans un cadre structuré : sauts sur trampoline, balançoire, ou danse courte.</li>
+                            <li>Créer un "coin calme" où le flapping est autorisé sans jugement pour l'auto-régulation.</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+{% endblock %}

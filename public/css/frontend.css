@@ -603,6 +603,93 @@ footer {
     font-size: 14px;
 }
 
+/* 7.1 Style spécifique pour la page sensorielle */
+
+        .main-content {
+            display: flex;
+            padding: 40px 0;
+            gap: 20px; /* Espace entre les deux colonnes */
+        }
+
+        .sidebar {
+            flex: 0 0 280px; /* Largeur fixe pour la barre latérale (environ 25% de 1200px) */
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            max-height: calc(100vh - 120px); /* Hauteur maximale pour le défilement */
+            overflow-y: auto; /* Permet le défilement si la liste est longue */
+        }
+
+        .sidebar h2 {
+            font-size: 20px;
+            color: var(--primary);
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 10px;
+        }
+
+        .stims-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .stims-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid var(--background);
+            cursor: pointer;
+            transition: background-color 0.2s, color 0.2s;
+            font-size: 15px;
+            color: var(--text);
+        }
+
+        .stims-list li:last-child {
+            border-bottom: none;
+        }
+
+        .stims-list li:hover, .stims-list li.active {
+            background-color: var(--accent-alt);
+            color: var(--primary);
+            padding-left: 5px;
+        }
+
+        .details-panel {
+            flex: 1; /* Prend l'espace restant (environ 75%) */
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .details-panel h1 {
+            font-size: 32px;
+            color: var(--primary);
+            margin-bottom: 20px;
+            border-bottom: 3px solid var(--secondary);
+            padding-bottom: 10px;
+        }
+
+        .details-panel h2 {
+            font-size: 24px;
+            color: var(--text);
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .explanation p {
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .suggestions ul {
+            list-style: disc;
+            margin-left: 20px;
+        }
+
+        .suggestions li {
+            margin-bottom: 10px;
+        }
+
 /* 8. Responsive Design */
 @media (max-width: 992px) {
     .main-content {
