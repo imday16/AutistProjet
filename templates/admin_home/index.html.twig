@@ -21,7 +21,7 @@
                 <td>{{ home.id }}</td>
                 <td>{{ home.titre }}</td>
                 <td>{{ home.texte }}</td>
-                <td>{{ home.carousels }}</td>
+                
                 <td>
                     <a href="{{ path('app_admin_home_show', {'id': home.id}) }}">show</a>
                     <a href="{{ path('app_admin_home_edit', {'id': home.id}) }}">edit</a>
@@ -29,7 +29,7 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="5">no records found</td>
+                <td colspan="4">no records found</td>
             </tr>
         {% endfor %}
         </tbody>
