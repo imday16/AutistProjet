@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'base-backend.html.twig' %}
 
 {% block title %}New AdminSenso{% endblock %}
 
@@ -7,5 +7,5 @@
 
     {{ include('admin_senso/_form.html.twig') }}
 
-    <a href="{{ path('app_admin_senso_index') }}">back to list</a>
+    <a href="{{ path('app_admin_senso_index') }}" class="btn btn-dark">Retour à la liste</a>
 {% endblock %}

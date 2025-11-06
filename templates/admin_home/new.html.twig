@@ -7,5 +7,10 @@
 
     {{ include('admin_home/_form.html.twig') }}
 
-    <a href="{{ path('app_admin_home_index') }}">back to list</a>
+    <a href="{{ path('app_admin_home_index') }}" class="btn btn-dark">Retour à la liste</a>
+{% endblock %}
+{% block javascripts %}
+<script>
+    $(".select2").select2();
+</script>
 {% endblock %}

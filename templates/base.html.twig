@@ -35,7 +35,7 @@
                 <li>
                     <a href="{{ path('app_contact') }}" class="{{ app.request.attributes.get('_route') == 'app_contact' ? 'active' : '' }}">Contact</a>
                 </li>
-                                <li>
+                <li>
                     <a href="{{ path('app_senso') }}" class="{{ app.request.attributes.get('_route') == 'app_senso' ? 'active' : '' }}">Senso</a>
                 </li>
                 <li>
@@ -71,11 +71,11 @@
                 <div class="footer-column">
                     <h3>Liens rapides</h3>
                     <ul>
-                        <li><a href="#">Accueil</a></li>
+                        <li><a href="{{ path('app_home') }}">Accueil</a></li>
                         <li><a href="#">À propos</a></li>
-                        <li><a href="#">Ressources</a></li>
-                        <li><a href="#">Témoignages</a></li>
-                        <li><a href="#">Contact</a></li>
+                        <li><a href="{{ path('app_resources') }}">Ressources</a></li>
+                        <li><a href="{{ path('app_testimony') }}">Témoignages</a></li>
+                        <li><a href="{{ path('app_resources') }}">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">

@@ -1,11 +1,11 @@
-{% extends 'base.html.twig' %}
+{% extends 'base-backend.html.twig' %}
 
 {% block title %}AdminSenso index{% endblock %}
 
 {% block body %}
     <h1>AdminSenso index</h1>
         
-    <a href="{{ path('app_admin_senso_new') }}">Create new</a>
+    <a href="{{ path('app_admin_senso_new') }}" class="btn btn-dark">Nouveau</a>
     <table class="table">
         <thead>
             <tr>
@@ -24,8 +24,8 @@
                 <td>{{ admin_senso.explication }}</td>
                 <td>{{ admin_senso.idee }}</td>
                 <td>
-                    <a href="{{ path('app_admin_senso_show', {'id': admin_senso.id}) }}">show</a>
-                    <a href="{{ path('app_admin_senso_edit', {'id': admin_senso.id}) }}">edit</a>
+                    <a href="{{ path('app_admin_senso_show', {'id': admin_senso.id}) }}" class="btn btn-dark"><i class="align-middle" data-feather="eye"></i></a>
+                    <a href="{{ path('app_admin_senso_edit', {'id': admin_senso.id}) }}" class="btn btn-success"><i class="align-middle" data-feather="edit-2"></i></a>
                 </td>
             </tr>
         {% else %}
