@@ -689,7 +689,53 @@ footer {
         .suggestions li {
             margin-bottom: 10px;
         }
+        /*7.2  About Section */
+        .about-section {
+            padding: 80px 0;
+            text-align: center;
+        }
 
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .about-content h2 {
+            color: var(--primary);
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 28px;
+        }
+
+        .about-content p {
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .about-content ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+
+        .about-content ul li {
+            background-color: var(--accent-alt);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .about-content ul li::before {
+            content: '✓';
+            color: var(--primary);
+            font-weight: bold;
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
 /* 8. Responsive Design */
 @media (max-width: 992px) {
     .main-content {

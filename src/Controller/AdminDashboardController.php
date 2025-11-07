@@ -12,7 +12,7 @@ final class AdminDashboardController extends AbstractController
     public function index(): Response
     {
         return $this->render('admin_dashboard/index.html.twig', [
-            'controller_name' => 'AdminDashboardController',
+            'controller_name' => 'M Ayad Imad, Comment je peux vous servir ? ',
         ]);
     }
 }
