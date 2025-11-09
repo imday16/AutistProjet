@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
@@ -54,6 +56,31 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column]
     private bool $isVerified = false;
+
+    /**
+     * @var Collection<int, Comment>
+     */
+    #[ORM\OneToMany(targetEntity: Comment::class, mappedBy: 'user')]
+    private Collection $comments;
+
+    /**
+     * @var Collection<int, TopicVote>
+     */
+    #[ORM\OneToMany(targetEntity: TopicVote::class, mappedBy: 'user')]
+    private Collection $topicVotes;
+
+    /**
+     * @var Collection<int, CommentVote>
+     */
+    #[ORM\OneToMany(targetEntity: CommentVote::class, mappedBy: 'user')]
+    private Collection $commentVotes;
+
+    public function __construct()
+    {
+        $this->comments = new ArrayCollection();
+        $this->topicVotes = new ArrayCollection();
+        $this->commentVotes = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -205,6 +232,96 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setIsVerified(bool $isVerified): static
     {
         $this->isVerified = $isVerified;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Comment>
+     */
+    public function getComments(): Collection
+    {
+        return $this->comments;
+    }
+
+    public function addComment(Comment $comment): static
+    {
+        if (!$this->comments->contains($comment)) {
+            $this->comments->add($comment);
+            $comment->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeComment(Comment $comment): static
+    {
+        if ($this->comments->removeElement($comment)) {
+            // set the owning side to null (unless already changed)
+            if ($comment->getUser() === $this) {
+                $comment->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, TopicVote>
+     */
+    public function getTopicVotes(): Collection
+    {
+        return $this->topicVotes;
+    }
+
+    public function addTopicVote(TopicVote $topicVote): static
+    {
+        if (!$this->topicVotes->contains($topicVote)) {
+            $this->topicVotes->add($topicVote);
+            $topicVote->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTopicVote(TopicVote $topicVote): static
+    {
+        if ($this->topicVotes->removeElement($topicVote)) {
+            // set the owning side to null (unless already changed)
+            if ($topicVote->getUser() === $this) {
+                $topicVote->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, CommentVote>
+     */
+    public function getCommentVotes(): Collection
+    {
+        return $this->commentVotes;
+    }
+
+    public function addCommentVote(CommentVote $commentVote): static
+    {
+        if (!$this->commentVotes->contains($commentVote)) {
+            $this->commentVotes->add($commentVote);
+            $commentVote->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCommentVote(CommentVote $commentVote): static
+    {
+        if ($this->commentVotes->removeElement($commentVote)) {
+            // set the owning side to null (unless already changed)
+            if ($commentVote->getUser() === $this) {
+                $commentVote->setUser(null);
+            }
+        }
 
         return $this;
     }
