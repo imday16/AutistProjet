@@ -18,6 +18,9 @@ html{
     --background: #F8F9FA; /* Gris très clair - Fond de page */
     --footer-bg: #7a9cbc; /* Bleu foncé pour le pied de page */
     --white: #ffffff;
+    --forum-border: #ddd;
+    --forum-gray: #999;
+    --forum-light-gray: #eee;
     --shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
@@ -347,6 +350,17 @@ main {
     font-size: 14px;
     cursor: pointer;
     transition: all 0.3s;
+}
+
+.filter-label{
+    font-weight: 600;
+    margin-right: 10px;
+}
+
+.filter-group{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
 .filter-tag:hover, .filter-tag.active {
@@ -790,5 +804,72 @@ footer {
     
     .blog-grid, .products-grid, .testimonials-grid {
         grid-template-columns: 1fr;
+    }
+        .forum-title {
+        font-size: 1.875rem;
+    }
+
+    .topic-card {
+        flex-direction: column;
+    }
+
+    .topic-stats {
+        margin-left: 0;
+        margin-top: 1rem;
+        align-items: flex-start;
+    }
+
+    .topic-detail-card {
+        padding: 1rem;
+    }
+
+    .comment-form-wrapper {
+        flex-direction: column;
+    }
+
+    .author-avatar {
+        width: 2.5rem;
+        height: 2.5rem;
+        font-size: 0.875rem;
+    }
+
+    .author-avatar-large {
+        width: 3rem;
+        height: 3rem;
+    }
+}
+@media (max-width: 480px) {
+    .forum-container {
+        padding: 1rem 0.5rem;
+    }
+
+    .forum-title {
+        font-size: 1.5rem;
+    }
+
+    .topic-title {
+        font-size: 1.125rem;
+    }
+
+    .topic-detail-title {
+        font-size: 1.5rem;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+
+    .btn-submit,
+    .btn-cancel {
+        width: 100%;
+    }
+
+    .votes-container {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .topic-stats {
+        gap: 0.5rem;
     }
 }

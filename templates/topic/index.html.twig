@@ -1,20 +1,151 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello TopicController!{% endblock %}
+{% block title %}{{ topic.title }} - Forum{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+<div class="forum-container">
+    <div class="forum-wrapper">
+        <!-- Back Button -->
+        <a href="{{ path('app_forum') }}" class="btn-back">
+            <svg class="back-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+            <span>Retour au forum</span>
+        </a>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+        <!-- Topic Card -->
+        <div class="topic-detail-card">
+            <!-- Author Info -->
+            <div class="topic-detail-author">
+                <div class="author-avatar-large">
+                    {{ topic.user.nom|first|upper }}{{ topic.user.prenom|first|upper }}
+                </div>
+                <div class="author-info-large">
+                    <p class="author-name-large">
+                        {{ topic.user.nom }} {{ topic.user.prenom }}
+                    </p>
+                    <p class="author-date-large">
+                        {{ topic.createdAt|date('d/m/Y H:i') }}
+                    </p>
+                </div>
+            </div>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>C:/xampp/htdocs/Symfony/Autist/autist_directory/src/Controller/TopicController.php</code></li>
-        <li>Your template at <code>C:/xampp/htdocs/Symfony/Autist/autist_directory/templates/topic/index.html.twig</code></li>
-    </ul>
+            <!-- Topic Title and Description -->
+            <h1 class="topic-detail-title">{{ topic.title }}</h1>
+            <p class="topic-detail-description">
+                {{ topic.description }}
+            </p>
+
+            <!-- Vote Section -->
+            <div class="topic-detail-votes">
+                <form method="POST" action="{{ path('app_forum_vote_topic', { id: topic.id, voteType: 'upvote' }) }}" class="vote-form">
+                    <button type="submit" class="btn-vote upvote {% if userTopicVote and userTopicVote.voteType == 'upvote' %}active{% endif %} {% if not app.user %}disabled{% endif %}" {% if not app.user %}disabled{% endif %}>
+                        <svg class="vote-icon-large" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M2 10.5a1.5 1.5 0 113 0v-7a1.5 1.5 0 00-3 0v7zM14 4a1 1 0 011 1v12a1 1 0 11-2 0V5a1 1 0 011-1zm-4-1a1 1 0 00-1 1v5a1 1 0 102 0V4a1 1 0 00-1-1z"></path>
+                        </svg>
+                        <span>{{ topic.upvotes }}</span>
+                    </button>
+                </form>
+
+                <form method="POST" action="{{ path('app_forum_vote_topic', { id: topic.id, voteType: 'downvote' }) }}" class="vote-form">
+                    <button type="submit" class="btn-vote downvote {% if userTopicVote and userTopicVote.voteType == 'downvote' %}active{% endif %} {% if not app.user %}disabled{% endif %}" {% if not app.user %}disabled{% endif %}>
+                        <svg class="vote-icon-large" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M2 9.5a1.5 1.5 0 113 0v7a1.5 1.5 0 01-3 0v-7zM14 16a1 1 0 011-1v-12a1 1 0 11-2 0v12a1 1 0 011 1zm-4 1a1 1 0 00-1-1v-5a1 1 0 102 0v5a1 1 0 00-1 1z"></path>
+                        </svg>
+                        <span>{{ topic.downvotes }}</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Comments Section -->
+        <div class="comments-section">
+            <h2 class="comments-title">
+                Commentaires ({{ topic.comments|length }})
+            </h2>
+
+            <!-- New Comment Form -->
+            {% if app.user %}
+                <div class="comment-form-container">
+                    <div class="comment-form-wrapper">
+                        <div class="author-avatar">
+                            {{ app.user.nom|first|upper }}{{ app.user.prenom|first|upper }}
+                        </div>
+                        <div class="comment-form-content">
+                            <form method="POST" action="{{ path('app_forum_create_comment', { id: topic.id }) }}">
+                                <textarea name="content" placeholder="Écrivez votre commentaire..." required
+                                    class="form-textarea"></textarea>
+                                <button type="submit" class="btn-submit">
+                                    Envoyer
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            {% else %}
+                <div class="comment-form-container">
+                    <p class="forum-login-prompt">
+                        <a href="{{ path('app_login') }}" class="link-login">Connectez-vous</a> pour ajouter un commentaire
+                    </p>
+                </div>
+            {% endif %}
+
+            <!-- Comments List -->
+            <div class="comments-list">
+                {% if topic.comments is empty %}
+                    <div class="comments-empty">
+                        <p>Aucun commentaire pour le moment. Soyez le premier !</p>
+                    </div>
+                {% else %}
+                    {% for comment in topic.comments %}
+                        <div class="comment-card">
+                            <!-- Comment Author -->
+                            <div class="comment-header">
+                                <div class="comment-author">
+                                    <div class="author-avatar">
+                                        {{ comment.user.nom|first|upper }}{{ comment.user.prenom|first|upper }}
+                                    </div>
+                                    <div class="author-info">
+                                        <p class="author-name">
+                                            {{ comment.user.nom }} {{ comment.user.prenom }}
+                                        </p>
+                                        <p class="author-date">
+                                            {{ comment.createdAt|date('d M Y, H:i') }}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Comment Content -->
+                            <p class="comment-content">
+                                {{ comment.content }}
+                            </p>
+
+                            <!-- Comment Vote Section -->
+                            <div class="comment-votes">
+                                <form method="POST" action="{{ path('app_forum_vote_comment', { id: comment.id, voteType: 'upvote' }) }}" class="vote-form-small">
+                                    <button type="submit" class="btn-vote-small upvote {% if not app.user %}disabled{% endif %}" {% if not app.user %}disabled{% endif %}>
+                                        <svg class="vote-icon-small" viewBox="0 0 20 20" fill="currentColor">
+                                            <path d="M2 10.5a1.5 1.5 0 113 0v-7a1.5 1.5 0 00-3 0v7zM14 4a1 1 0 011 1v12a1 1 0 11-2 0V5a1 1 0 011-1zm-4-1a1 1 0 00-1 1v5a1 1 0 102 0V4a1 1 0 00-1-1z"></path>
+                                        </svg>
+                                        <span>{{ comment.upvotes }}</span>
+                                    </button>
+                                </form>
+
+                                <form method="POST" action="{{ path('app_forum_vote_comment', { id: comment.id, voteType: 'downvote' }) }}" class="vote-form-small">
+                                    <button type="submit" class="btn-vote-small downvote {% if not app.user %}disabled{% endif %}" {% if not app.user %}disabled{% endif %}>
+                                        <svg class="vote-icon-small" viewBox="0 0 20 20" fill="currentColor">
+                                            <path d="M2 9.5a1.5 1.5 0 113 0v7a1.5 1.5 0 01-3 0v-7zM14 16a1 1 0 011-1v-12a1 1 0 11-2 0v12a1 1 0 011 1zm-4 1a1 1 0 00-1-1v-5a1 1 0 102 0v5a1 1 0 00-1 1z"></path>
+                                        </svg>
+                                        <span>{{ comment.downvotes }}</span>
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}

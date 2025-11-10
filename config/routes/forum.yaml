@@ -1,0 +1,47 @@
+# Forum Routes
+app_forum:
+    path: /forum
+    controller: App\Controller\ForumController::index
+    methods: [GET]
+
+
+app_forum_create_topic:
+    path: /forum/topic/create
+    controller: App\Controller\ForumController::createTopic
+    methods: [POST]
+
+
+app_topic:
+    path: /forum/topic/{id}
+    controller: App\Controller\TopicController::index
+    methods: [GET]
+    requirements:
+        id: '\d+'
+
+
+app_forum_create_comment:
+    path: /forum/topic/{id}/comment/create
+    controller: App\Controller\TopicController::createComment
+    methods: [POST]
+    requirements:
+        id: '\d+'
+
+
+app_forum_vote_topic:
+    path: /forum/topic/{id}/vote/{voteType}
+    controller: App\Controller\ForumController::voteTopic
+    methods: [POST]
+    requirements:
+        id: '\d+'
+        voteType: 'upvote|downvote'
+ 
+
+app_forum_vote_comment:
+    path: /forum/comment/{id}/vote/{voteType}
+    controller: App\Controller\TopicController::voteComment
+    methods: [POST]
+    requirements:
+        id: '\d+'
+        voteType: 'upvote|downvote'
+
+
