@@ -284,11 +284,15 @@
     color: var(--text);
     overflow: hidden;
     display: -webkit-box;
-    -webkit-line-clamp: 2;
+    display: box; /* fallback pour d’anciens navigateurs */
     -webkit-box-orient: vertical;
-    text-overflow: ellipsis; /* ✅ ajouté */
+    box-orient: vertical; /* fallback */
+    -webkit-line-clamp: 2; /* ancien préfixe WebKit */
+    line-clamp: 2; /* nouvelle version standard */
+    text-overflow: ellipsis;
     margin: 0;
 }
+
 
 /* ============================================
    TOPIC STATS

@@ -46,11 +46,18 @@ class Comment
     #[ORM\OneToMany(targetEntity: CommentVote::class, mappedBy: 'comment')]
     private Collection $commentVotes;
 
+    /**
+     * @var Collection<int, Report>
+     */
+    #[ORM\OneToMany(targetEntity: Report::class, mappedBy: 'comment')]
+    private Collection $reports;
+
     public function __construct()
     {
         $this->createdAt = new \DateTimeImmutable();
         $this->updatedAt = new \DateTimeImmutable();
         $this->commentVotes = new ArrayCollection();
+        $this->reports = new ArrayCollection();
     }
 
     #[ORM\PreUpdate]
@@ -165,6 +172,36 @@ class Comment
             // set the owning side to null (unless already changed)
             if ($commentVote->getComment() === $this) {
                 $commentVote->setComment(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Report>
+     */
+    public function getReports(): Collection
+    {
+        return $this->reports;
+    }
+
+    public function addReport(Report $report): static
+    {
+        if (!$this->reports->contains($report)) {
+            $this->reports->add($report);
+            $report->setComment($this);
+        }
+
+        return $this;
+    }
+
+    public function removeReport(Report $report): static
+    {
+        if ($this->reports->removeElement($report)) {
+            // set the owning side to null (unless already changed)
+            if ($report->getComment() === $this) {
+                $report->setComment(null);
             }
         }
 

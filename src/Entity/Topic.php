@@ -51,12 +51,26 @@ class Topic
     #[ORM\OneToMany(targetEntity: TopicVote::class, mappedBy: 'topic')]
     private Collection $topicVotes;
 
+    /**
+     * @var Collection<int, AdminTopicStatus>
+     */
+    #[ORM\OneToMany(targetEntity: AdminTopicStatus::class, mappedBy: 'topic')]
+    private Collection $adminTopicStatuses;
+
+    /**
+     * @var Collection<int, Report>
+     */
+    #[ORM\OneToMany(targetEntity: Report::class, mappedBy: 'topic')]
+    private Collection $reports;
+
     public function __construct()
     {
         $this->createdAt = new \DateTimeImmutable();
         $this->updatedAt = new \DateTimeImmutable();
         $this->comments = new ArrayCollection();
         $this->topicVotes = new ArrayCollection();
+        $this->adminTopicStatuses = new ArrayCollection();
+        $this->reports = new ArrayCollection();
     }
 
     #[ORM\PreUpdate]
@@ -198,6 +212,66 @@ class Topic
             // set the owning side to null (unless already changed)
             if ($topicVote->getTopic() === $this) {
                 $topicVote->setTopic(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, AdminTopicStatus>
+     */
+    public function getAdminTopicStatuses(): Collection
+    {
+        return $this->adminTopicStatuses;
+    }
+
+    public function addAdminTopicStatus(AdminTopicStatus $adminTopicStatus): static
+    {
+        if (!$this->adminTopicStatuses->contains($adminTopicStatus)) {
+            $this->adminTopicStatuses->add($adminTopicStatus);
+            $adminTopicStatus->setTopic($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAdminTopicStatus(AdminTopicStatus $adminTopicStatus): static
+    {
+        if ($this->adminTopicStatuses->removeElement($adminTopicStatus)) {
+            // set the owning side to null (unless already changed)
+            if ($adminTopicStatus->getTopic() === $this) {
+                $adminTopicStatus->setTopic(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Report>
+     */
+    public function getReports(): Collection
+    {
+        return $this->reports;
+    }
+
+    public function addReport(Report $report): static
+    {
+        if (!$this->reports->contains($report)) {
+            $this->reports->add($report);
+            $report->setTopic($this);
+        }
+
+        return $this;
+    }
+
+    public function removeReport(Report $report): static
+    {
+        if ($this->reports->removeElement($report)) {
+            // set the owning side to null (unless already changed)
+            if ($report->getTopic() === $this) {
+                $report->setTopic(null);
             }
         }
 

@@ -75,11 +75,39 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(targetEntity: CommentVote::class, mappedBy: 'user')]
     private Collection $commentVotes;
 
+    /**
+     * @var Collection<int, AdminTopicStatus>
+     */
+    #[ORM\OneToMany(targetEntity: AdminTopicStatus::class, mappedBy: 'moderatedBy')]
+    private Collection $adminTopicStatuses;
+
+    /**
+     * @var Collection<int, CommentStatus>
+     */
+    #[ORM\OneToMany(targetEntity: CommentStatus::class, mappedBy: 'moderatedBy')]
+    private Collection $commentStatuses;
+
+    /**
+     * @var Collection<int, Report>
+     */
+    #[ORM\OneToMany(targetEntity: Report::class, mappedBy: 'reportedBy')]
+    private Collection $reports;
+
+    /**
+     * @var Collection<int, Report>
+     */
+    #[ORM\OneToMany(targetEntity: Report::class, mappedBy: 'resolvedBy')]
+    private Collection $allreports;
+
     public function __construct()
     {
         $this->comments = new ArrayCollection();
         $this->topicVotes = new ArrayCollection();
         $this->commentVotes = new ArrayCollection();
+        $this->adminTopicStatuses = new ArrayCollection();
+        $this->commentStatuses = new ArrayCollection();
+        $this->reports = new ArrayCollection();
+        $this->allreports = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -320,6 +348,126 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
             // set the owning side to null (unless already changed)
             if ($commentVote->getUser() === $this) {
                 $commentVote->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, AdminTopicStatus>
+     */
+    public function getAdminTopicStatuses(): Collection
+    {
+        return $this->adminTopicStatuses;
+    }
+
+    public function addAdminTopicStatus(AdminTopicStatus $adminTopicStatus): static
+    {
+        if (!$this->adminTopicStatuses->contains($adminTopicStatus)) {
+            $this->adminTopicStatuses->add($adminTopicStatus);
+            $adminTopicStatus->setModeratedBy($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAdminTopicStatus(AdminTopicStatus $adminTopicStatus): static
+    {
+        if ($this->adminTopicStatuses->removeElement($adminTopicStatus)) {
+            // set the owning side to null (unless already changed)
+            if ($adminTopicStatus->getModeratedBy() === $this) {
+                $adminTopicStatus->setModeratedBy(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, CommentStatus>
+     */
+    public function getCommentStatuses(): Collection
+    {
+        return $this->commentStatuses;
+    }
+
+    public function addCommentStatus(CommentStatus $commentStatus): static
+    {
+        if (!$this->commentStatuses->contains($commentStatus)) {
+            $this->commentStatuses->add($commentStatus);
+            $commentStatus->setModeratedBy($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCommentStatus(CommentStatus $commentStatus): static
+    {
+        if ($this->commentStatuses->removeElement($commentStatus)) {
+            // set the owning side to null (unless already changed)
+            if ($commentStatus->getModeratedBy() === $this) {
+                $commentStatus->setModeratedBy(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Report>
+     */
+    public function getReports(): Collection
+    {
+        return $this->reports;
+    }
+
+    public function addReport(Report $report): static
+    {
+        if (!$this->reports->contains($report)) {
+            $this->reports->add($report);
+            $report->setReportedBy($this);
+        }
+
+        return $this;
+    }
+
+    public function removeReport(Report $report): static
+    {
+        if ($this->reports->removeElement($report)) {
+            // set the owning side to null (unless already changed)
+            if ($report->getReportedBy() === $this) {
+                $report->setReportedBy(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Report>
+     */
+    public function getAllreports(): Collection
+    {
+        return $this->allreports;
+    }
+
+    public function addAllreport(Report $allreport): static
+    {
+        if (!$this->allreports->contains($allreport)) {
+            $this->allreports->add($allreport);
+            $allreport->setResolvedBy($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAllreport(Report $allreport): static
+    {
+        if ($this->allreports->removeElement($allreport)) {
+            // set the owning side to null (unless already changed)
+            if ($allreport->getResolvedBy() === $this) {
+                $allreport->setResolvedBy(null);
             }
         }
 
