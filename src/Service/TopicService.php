@@ -64,6 +64,14 @@ class TopicService
         $this->entityManager->persist($topic);
         $this->entityManager->flush();
 
+        $this->entityManager->persist($topic);
+        $this->entityManager->flush();
+
+        /**
+         * Créer la modération
+         */
+        $this->moderationService->createTopicModeration($topic);
+        
         return $topic;
     }
 

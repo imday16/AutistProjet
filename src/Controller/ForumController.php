@@ -22,7 +22,7 @@ class ForumController extends AbstractController
     public function index(): Response
     {
         $data = $this->topicService->getAllTopics();
-        
+
         return $this->render('forum/index.html.twig', [
             'topics' => $data['topics'],
         ]);
@@ -39,10 +39,12 @@ class ForumController extends AbstractController
             $this->addFlash('error', 'Titre et description requis');
             return $this->redirectToRoute('app_forum');
         }
-
-        $this->topicService->createTopic($title, $description, $this->getUser());
-        $this->addFlash('success', 'Sujet créé avec succès');
-
+        try {
+            $this->topicService->createTopic($title, $description, $this->getUser());
+            $this->addFlash('success', 'Sujet créé avec succès');
+        } catch (\Exception $e) {
+            $this->addFlash('error', $e->getMessage());
+        }
         return $this->redirectToRoute('app_forum');
     }
 

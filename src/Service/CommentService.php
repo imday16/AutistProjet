@@ -51,6 +51,12 @@ class CommentService
         $this->entityManager->persist($comment);
         $this->entityManager->flush();
 
+        /**
+         *  Créer la modération
+         */
+
+        $this->moderationService->createCommentModeration($comment);
+
         return $comment;
     }
 
