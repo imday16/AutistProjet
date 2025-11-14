@@ -3,12 +3,12 @@
 namespace App\Entity;
 
 use App\enum\Status;
-use App\Repository\CommentStatusRepository;
+use App\Repository\CommentModerationRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: CommentStatusRepository::class)]
-class CommentStatus
+#[ORM\Entity(repositoryClass: CommentModerationRepository::class)]
+class CommentModeration
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -25,7 +25,7 @@ class CommentStatus
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $reason = null;
 
-    #[ORM\ManyToOne(inversedBy: 'commentStatuses')]
+    #[ORM\ManyToOne(inversedBy: 'CommentModerationes')]
     private ?User $moderatedBy = null;
 
     #[ORM\Column]

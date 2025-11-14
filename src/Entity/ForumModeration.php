@@ -3,19 +3,19 @@
 namespace App\Entity;
 
 use App\Enum\Status;
-use App\Repository\AdminTopicStatusRepository;
+use App\Repository\ForumModerationRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: AdminTopicStatusRepository::class)]
-class AdminTopicStatus
+#[ORM\Entity(repositoryClass: ForumModerationRepository::class)]
+class ForumModeration
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\ManyToOne(inversedBy: 'adminTopicStatuses')]
+    #[ORM\ManyToOne(inversedBy: 'ForumModerationes')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Topic $topic = null;
 
@@ -25,7 +25,7 @@ class AdminTopicStatus
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $reason = null;
 
-    #[ORM\ManyToOne(inversedBy: 'adminTopicStatuses')]
+    #[ORM\ManyToOne(inversedBy: 'ForumModerationes')]
     private ?User $moderatedBy = null;
 
     #[ORM\Column]

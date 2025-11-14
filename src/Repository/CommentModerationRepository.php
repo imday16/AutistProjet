@@ -2,22 +2,22 @@
 
 namespace App\Repository;
 
-use App\Entity\CommentStatus;
+use App\Entity\CommentModeration;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<CommentStatus>
+ * @extends ServiceEntityRepository<CommentModeration>
  */
-class CommentStatusRepository extends ServiceEntityRepository
+class CommentModerationRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, CommentStatus::class);
+        parent::__construct($registry, CommentModeration::class);
     }
 
     //    /**
-    //     * @return CommentStatus[] Returns an array of CommentStatus objects
+    //     * @return CommentModeration[] Returns an array of CommentModeration objects
     //     */
     //    public function findByExampleField($value): array
     //    {
@@ -31,7 +31,7 @@ class CommentStatusRepository extends ServiceEntityRepository
     //        ;
     //    }
 
-    //    public function findOneBySomeField($value): ?CommentStatus
+    //    public function findOneBySomeField($value): ?CommentModeration
     //    {
     //        return $this->createQueryBuilder('c')
     //            ->andWhere('c.exampleField = :val')

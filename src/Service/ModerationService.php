@@ -2,17 +2,18 @@
 
 namespace App\Service;
 
+use App\Entity\User;
+use App\Enum\Status;
 use App\Entity\Topic;
 use App\Entity\Comment;
-use App\Entity\User;
 use App\Entity\ForumModeration;
 use App\Entity\CommentModeration;
-use App\Service\NotificationService; // <-- manquant
+use App\Repository\TopicRepository;
+use App\Repository\ReportRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use App\Repository\ForumModerationRepository;
 use App\Repository\CommentModerationRepository;
-use App\Repository\ReportRepository;
-use App\Repository\TopicRepository;
-use Doctrine\ORM\EntityManagerInterface;
+use App\Service\NotificationService; // <-- manquant
 
 class ModerationService
 {
@@ -32,9 +33,9 @@ class ModerationService
     {
         $moderation = new ForumModeration();
         $moderation->setTopic($topic);
-        $moderation->setStatus('pending');
-        $moderation->setCreatedAt(new \DateTime());
-        $moderation->setUpdatedAt(new \DateTime());
+        $moderation->setStatus(Status::PENDING);
+        $moderation->setCreatedAt(new \DateTimeImmutable());
+        $moderation->setUpdatedAt(new \DateTimeImmutable());
 
         $this->entityManager->persist($moderation);
         $this->entityManager->flush();
@@ -49,9 +50,9 @@ class ModerationService
     {
         $moderation = new CommentModeration();
         $moderation->setComment($comment);
-        $moderation->setStatus('pending');
-        $moderation->setCreatedAt(new \DateTime());
-        $moderation->setUpdatedAt(new \DateTime());
+        $moderation->setStatus(Status::PENDING);
+        $moderation->setCreatedAt(new \DateTimeImmutable());
+        $moderation->setUpdatedAt(new \DateTimeImmutable());
 
         $this->entityManager->persist($moderation);
         $this->entityManager->flush();
@@ -70,9 +71,9 @@ class ModerationService
             $moderation = $this->createTopicModeration($topic);
         }
 
-        $moderation->setStatus('approved');
+        $moderation->setStatus(Status::APPROVED);
         $moderation->setModeratedBy($moderator);
-        $moderation->setUpdatedAt(new \DateTime());
+        $moderation->setUpdatedAt(new \DateTimeImmutable());
 
         $this->entityManager->flush();
     }
@@ -88,10 +89,10 @@ class ModerationService
             $moderation = $this->createTopicModeration($topic);
         }
 
-        $moderation->setStatus('rejected');
+        $moderation->setStatus(Status::REJECTED);
         $moderation->setReason($reason);
         $moderation->setModeratedBy($moderator);
-        $moderation->setUpdatedAt(new \DateTime());
+        $moderation->setUpdatedAt(new \DateTimeImmutable());
 
         $this->entityManager->flush();
 
@@ -110,10 +111,10 @@ class ModerationService
             $moderation = $this->createTopicModeration($topic);
         }
 
-        $moderation->setStatus('flagged');
+        $moderation->setStatus(Status::FLAGGED);
         $moderation->setReason($reason);
         $moderation->setModeratedBy($moderator);
-        $moderation->setUpdatedAt(new \DateTime());
+        $moderation->setUpdatedAt(new \DateTimeImmutable());
 
         $this->entityManager->flush();
     }
@@ -129,9 +130,9 @@ class ModerationService
             $moderation = $this->createCommentModeration($comment);
         }
 
-        $moderation->setStatus('approved');
+        $moderation->setStatus(Status::APPROVED);
         $moderation->setModeratedBy($moderator);
-        $moderation->setUpdatedAt(new \DateTime());
+        $moderation->setUpdatedAt(new \DateTimeImmutable());
 
         $this->entityManager->flush();
     }
@@ -147,10 +148,10 @@ class ModerationService
             $moderation = $this->createCommentModeration($comment);
         }
 
-        $moderation->setStatus('rejected');
+        $moderation->setStatus(Status::REJECTED);
         $moderation->setReason($reason);
         $moderation->setModeratedBy($moderator);
-        $moderation->setUpdatedAt(new \DateTime());
+        $moderation->setUpdatedAt(new \DateTimeImmutable());
 
         $this->entityManager->flush();
 
@@ -170,10 +171,10 @@ class ModerationService
             $moderation = $this->createCommentModeration($comment);
         }
 
-        $moderation->setStatus('flagged');
+        $moderation->setStatus(Status::FLAGGED);
         $moderation->setReason($reason);
         $moderation->setModeratedBy($moderator);
-        $moderation->setUpdatedAt(new \DateTime());
+        $moderation->setUpdatedAt(new \DateTimeImmutable());
 
         $this->entityManager->flush();
     }

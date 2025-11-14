@@ -4,6 +4,7 @@ namespace App\Service;
 
 use App\Entity\Topic;
 use App\Entity\User;
+use App\Service\ModerationService;
 use App\Repository\TopicRepository;
 use Doctrine\ORM\EntityManagerInterface;
 

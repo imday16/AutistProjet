@@ -2,10 +2,12 @@
 
 namespace App\Service;
 
-use App\Entity\Topic;
-use App\Entity\Comment;
 use App\Entity\User;
+use App\Enum\Reason;
+use App\Enum\Status;
+use App\Entity\Topic;
 use App\Entity\Report;
+use App\Entity\Comment;
 use App\Repository\ReportRepository;
 use Doctrine\ORM\EntityManagerInterface;
 
@@ -18,33 +20,35 @@ class ReportService
     ) {}
 
     /**
-     * Signale un sujet
+     * Signale un commentaire
      */
-    public function reportTopic(
-        Topic $topic,
+    public function reportComment(
+        Comment $comment,
         User $reportedBy,
         string $reason,
-        string $description = null
+        ?string $description = null
     ): Report {
-        // Vérifier si l'utilisateur a déjà signalé ce sujet
+
+        // Vérifier si l'utilisateur a déjà signalé ce commentaire
         $existingReport = $this->reportRepository->findOneBy([
-            'topic' => $topic,
+            'comment' => $comment,
             'reportedBy' => $reportedBy,
-            'status' => 'pending',
+            'status' => Status::PENDING,
         ]);
 
         if ($existingReport) {
-            throw new \Exception('Vous avez déjà signalé ce sujet');
+            throw new \Exception('Vous avez déjà signalé ce commentaire');
         }
 
         $report = new Report();
-        $report->setTopic($topic);
+        $report->setComment($comment);
         $report->setReportedBy($reportedBy);
-        $report->setReason($reason);
+        $report->setReason(Reason::from($reason));
+
         $report->setDescription($description);
-        $report->setStatus('pending');
-        $report->setCreatedAt(new \DateTime());
-        $report->setUpdatedAt(new \DateTime());
+        $report->setStatus(Status::PENDING);
+        $report->setCreatedAt(new \DateTimeImmutable());
+        $report->setUpdatedAt(new \DateTimeImmutable());
 
         $this->entityManager->persist($report);
         $this->entityManager->flush();
@@ -56,33 +60,34 @@ class ReportService
     }
 
     /**
-     * Signale un commentaire
+     * Signale un sujet
      */
-    public function reportComment(
-        Comment $comment,
+    public function reportTopic(
+        Topic $topic,
         User $reportedBy,
         string $reason,
-        string $description = null
+        ?string $description = null
     ): Report {
-        // Vérifier si l'utilisateur a déjà signalé ce commentaire
+
+        // Vérifier si l'utilisateur a déjà signalé ce sujet
         $existingReport = $this->reportRepository->findOneBy([
-            'comment' => $comment,
+            'topic' => $topic,
             'reportedBy' => $reportedBy,
-            'status' => 'pending',
+            'status' => Status::PENDING,
         ]);
 
         if ($existingReport) {
-            throw new \Exception('Vous avez déjà signalé ce commentaire');
+            throw new \Exception('Vous avez déjà signalé ce sujet');
         }
 
         $report = new Report();
-        $report->setComment($comment);
+        $report->setTopic($topic);
         $report->setReportedBy($reportedBy);
-        $report->setReason($reason);
+        $report->setReason(Reason::from($reason));
         $report->setDescription($description);
-        $report->setStatus('pending');
-        $report->setCreatedAt(new \DateTime());
-        $report->setUpdatedAt(new \DateTime());
+        $report->setStatus(Status::PENDING);
+        $report->setCreatedAt(new \DateTimeImmutable());
+        $report->setUpdatedAt(new \DateTimeImmutable());
 
         $this->entityManager->persist($report);
         $this->entityManager->flush();
@@ -98,9 +103,9 @@ class ReportService
      */
     public function resolveReport(Report $report, User $resolvedBy): void
     {
-        $report->setStatus('resolved');
+        $report->setStatus(Status::RESOLVED);
         $report->setResolvedBy($resolvedBy);
-        $report->setUpdatedAt(new \DateTime());
+        $report->setUpdatedAt(new \DateTimeImmutable());
 
         $this->entityManager->flush();
     }
@@ -110,9 +115,9 @@ class ReportService
      */
     public function dismissReport(Report $report, User $resolvedBy): void
     {
-        $report->setStatus('dismissed');
+        $report->setStatus(Status::DISMISSED);
         $report->setResolvedBy($resolvedBy);
-        $report->setUpdatedAt(new \DateTime());
+        $report->setUpdatedAt(new \DateTimeImmutable());
 
         $this->entityManager->flush();
     }
@@ -123,7 +128,7 @@ class ReportService
     public function getPendingReports(): array
     {
         return $this->reportRepository->findBy(
-            ['status' => 'pending'],
+            ['status' => Status::PENDING],
             ['createdAt' => 'DESC']
         );
     }
@@ -134,7 +139,7 @@ class ReportService
     public function getResolvedReports(): array
     {
         return $this->reportRepository->findBy(
-            ['status' => 'resolved'],
+            ['status' => Status::RESOLVED],
             ['createdAt' => 'DESC']
         );
     }
@@ -145,7 +150,7 @@ class ReportService
     public function getDismissedReports(): array
     {
         return $this->reportRepository->findBy(
-            ['status' => 'dismissed'],
+            ['status' => Status::DISMISSED],
             ['createdAt' => 'DESC']
         );
     }
@@ -193,13 +198,11 @@ class ReportService
      */
     public function hasUserReportedTopic(Topic $topic, User $user): bool
     {
-        $report = $this->reportRepository->findOneBy([
+        return $this->reportRepository->findOneBy([
             'topic' => $topic,
             'reportedBy' => $user,
-            'status' => 'pending',
-        ]);
-
-        return $report !== null;
+            'status' => Status::PENDING,
+        ]) !== null;
     }
 
     /**
@@ -207,13 +210,11 @@ class ReportService
      */
     public function hasUserReportedComment(Comment $comment, User $user): bool
     {
-        $report = $this->reportRepository->findOneBy([
+        return $this->reportRepository->findOneBy([
             'comment' => $comment,
             'reportedBy' => $user,
-            'status' => 'pending',
-        ]);
-
-        return $report !== null;
+            'status' => Status::PENDING,
+        ]) !== null;
     }
 
     /**
