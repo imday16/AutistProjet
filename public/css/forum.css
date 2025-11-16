@@ -105,6 +105,12 @@
     height: 1.25rem;
 }
 
+/* taille d'icônes */
+
+.vote-icon { width: 18px; height: 18px; }
+.comment-icon { width: 16px; height: 16px; }
+
+
 /* ============================================
    FORM STYLES
    ============================================ */

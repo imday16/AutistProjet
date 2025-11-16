@@ -15,7 +15,7 @@ class ForumModeration
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\ManyToOne(inversedBy: 'ForumModerationes')]
+    #[ORM\ManyToOne(inversedBy: 'ForumModerations')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Topic $topic = null;
 
@@ -25,7 +25,7 @@ class ForumModeration
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $reason = null;
 
-    #[ORM\ManyToOne(inversedBy: 'ForumModerationes')]
+    #[ORM\ManyToOne(inversedBy: 'ForumModerations')]
     private ?User $moderatedBy = null;
 
     #[ORM\Column]

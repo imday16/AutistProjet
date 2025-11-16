@@ -76,16 +76,16 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private Collection $commentVotes;
 
     /**
-     * @var Collection<int, AdminTopicStatus>
+     * @var Collection<int, ForumModeration>
      */
-    #[ORM\OneToMany(targetEntity: AdminTopicStatus::class, mappedBy: 'moderatedBy')]
-    private Collection $adminTopicStatuses;
+    #[ORM\OneToMany(targetEntity: ForumModeration::class, mappedBy: 'moderatedBy')]
+    private Collection $ForumModerationes;
 
     /**
-     * @var Collection<int, CommentStatus>
+     * @var Collection<int, CommentModeration>
      */
-    #[ORM\OneToMany(targetEntity: CommentStatus::class, mappedBy: 'moderatedBy')]
-    private Collection $commentStatuses;
+    #[ORM\OneToMany(targetEntity: CommentModeration::class, mappedBy: 'moderatedBy')]
+    private Collection $CommentModerationes;
 
     /**
      * @var Collection<int, Report>
@@ -104,8 +104,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->comments = new ArrayCollection();
         $this->topicVotes = new ArrayCollection();
         $this->commentVotes = new ArrayCollection();
-        $this->adminTopicStatuses = new ArrayCollection();
-        $this->commentStatuses = new ArrayCollection();
+        $this->ForumModerationes = new ArrayCollection();
+        $this->CommentModerationes = new ArrayCollection();
         $this->reports = new ArrayCollection();
         $this->allreports = new ArrayCollection();
     }
@@ -355,29 +355,29 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     }
 
     /**
-     * @return Collection<int, AdminTopicStatus>
+     * @return Collection<int, ForumModeration>
      */
-    public function getAdminTopicStatuses(): Collection
+    public function getForumModerationes(): Collection
     {
-        return $this->adminTopicStatuses;
+        return $this->ForumModerationes;
     }
 
-    public function addAdminTopicStatus(AdminTopicStatus $adminTopicStatus): static
+    public function addForumModeration(ForumModeration $ForumModeration): static
     {
-        if (!$this->adminTopicStatuses->contains($adminTopicStatus)) {
-            $this->adminTopicStatuses->add($adminTopicStatus);
-            $adminTopicStatus->setModeratedBy($this);
+        if (!$this->ForumModerationes->contains($ForumModeration)) {
+            $this->ForumModerationes->add($ForumModeration);
+            $ForumModeration->setModeratedBy($this);
         }
 
         return $this;
     }
 
-    public function removeAdminTopicStatus(AdminTopicStatus $adminTopicStatus): static
+    public function removeForumModeration(ForumModeration $ForumModeration): static
     {
-        if ($this->adminTopicStatuses->removeElement($adminTopicStatus)) {
+        if ($this->ForumModerationes->removeElement($ForumModeration)) {
             // set the owning side to null (unless already changed)
-            if ($adminTopicStatus->getModeratedBy() === $this) {
-                $adminTopicStatus->setModeratedBy(null);
+            if ($ForumModeration->getModeratedBy() === $this) {
+                $ForumModeration->setModeratedBy(null);
             }
         }
 
@@ -385,29 +385,29 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     }
 
     /**
-     * @return Collection<int, CommentStatus>
+     * @return Collection<int, CommentModeration>
      */
-    public function getCommentStatuses(): Collection
+    public function getCommentModerationes(): Collection
     {
-        return $this->commentStatuses;
+        return $this->CommentModerationes;
     }
 
-    public function addCommentStatus(CommentStatus $commentStatus): static
+    public function addCommentModeration(CommentModeration $CommentModeration): static
     {
-        if (!$this->commentStatuses->contains($commentStatus)) {
-            $this->commentStatuses->add($commentStatus);
-            $commentStatus->setModeratedBy($this);
+        if (!$this->CommentModerationes->contains($CommentModeration)) {
+            $this->CommentModerationes->add($CommentModeration);
+            $CommentModeration->setModeratedBy($this);
         }
 
         return $this;
     }
 
-    public function removeCommentStatus(CommentStatus $commentStatus): static
+    public function removeCommentModeration(CommentModeration $CommentModeration): static
     {
-        if ($this->commentStatuses->removeElement($commentStatus)) {
+        if ($this->CommentModerationes->removeElement($CommentModeration)) {
             // set the owning side to null (unless already changed)
-            if ($commentStatus->getModeratedBy() === $this) {
-                $commentStatus->setModeratedBy(null);
+            if ($CommentModeration->getModeratedBy() === $this) {
+                $CommentModeration->setModeratedBy(null);
             }
         }
 

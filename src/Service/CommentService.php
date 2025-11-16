@@ -13,6 +13,7 @@ class CommentService
     public function __construct(
         private EntityManagerInterface $entityManager,
         private CommentRepository $commentRepository,
+         private ModerationService $moderationService,  // 👉 Injection du service
     ) {}
 
     /**

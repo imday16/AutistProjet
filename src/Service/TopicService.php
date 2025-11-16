@@ -10,10 +10,14 @@ use Doctrine\ORM\EntityManagerInterface;
 
 class TopicService
 {
+    private ModerationService $moderationService;
     public function __construct(
         private EntityManagerInterface $entityManager,
         private TopicRepository $topicRepository,
-    ) {}
+        ModerationService $moderationService
+    ) {
+        $this->moderationService = $moderationService;
+    }
 
     /**
      * Récupère tous les sujets avec pagination
@@ -52,7 +56,9 @@ class TopicService
      * Crée un nouveau sujet
      */
     public function createTopic(string $title, string $description, User $user): Topic
-    {
+    { 
+        /** Vérifier la limite */
+        
         $topic = new Topic();
         $topic->setTitle($title);
         $topic->setDescription($description);
@@ -61,9 +67,6 @@ class TopicService
         $topic->setUpdatedAt(new \DateTimeImmutable());
         $topic->setUpvotes(0);
         $topic->setDownvotes(0);
-
-        $this->entityManager->persist($topic);
-        $this->entityManager->flush();
 
         $this->entityManager->persist($topic);
         $this->entityManager->flush();

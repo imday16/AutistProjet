@@ -52,10 +52,10 @@ class Topic
     private Collection $topicVotes;
 
     /**
-     * @var Collection<int, AdminTopicStatus>
+     * @var Collection<int, ForumModeration>
      */
-    #[ORM\OneToMany(targetEntity: AdminTopicStatus::class, mappedBy: 'topic')]
-    private Collection $adminTopicStatuses;
+    #[ORM\OneToMany(targetEntity: ForumModeration::class, mappedBy: 'topic')]
+    private Collection $ForumModerationes;
 
     /**
      * @var Collection<int, Report>
@@ -69,7 +69,7 @@ class Topic
         $this->updatedAt = new \DateTimeImmutable();
         $this->comments = new ArrayCollection();
         $this->topicVotes = new ArrayCollection();
-        $this->adminTopicStatuses = new ArrayCollection();
+        $this->ForumModerationes = new ArrayCollection();
         $this->reports = new ArrayCollection();
     }
 
@@ -219,29 +219,29 @@ class Topic
     }
 
     /**
-     * @return Collection<int, AdminTopicStatus>
+     * @return Collection<int, ForumModeration>
      */
-    public function getAdminTopicStatuses(): Collection
+    public function getForumModerationes(): Collection
     {
-        return $this->adminTopicStatuses;
+        return $this->ForumModerationes;
     }
 
-    public function addAdminTopicStatus(AdminTopicStatus $adminTopicStatus): static
+    public function addForumModeration(ForumModeration $ForumModeration): static
     {
-        if (!$this->adminTopicStatuses->contains($adminTopicStatus)) {
-            $this->adminTopicStatuses->add($adminTopicStatus);
-            $adminTopicStatus->setTopic($this);
+        if (!$this->ForumModerationes->contains($ForumModeration)) {
+            $this->ForumModerationes->add($ForumModeration);
+            $ForumModeration->setTopic($this);
         }
 
         return $this;
     }
 
-    public function removeAdminTopicStatus(AdminTopicStatus $adminTopicStatus): static
+    public function removeForumModeration(ForumModeration $ForumModeration): static
     {
-        if ($this->adminTopicStatuses->removeElement($adminTopicStatus)) {
+        if ($this->ForumModerationes->removeElement($ForumModeration)) {
             // set the owning side to null (unless already changed)
-            if ($adminTopicStatus->getTopic() === $this) {
-                $adminTopicStatus->setTopic(null);
+            if ($ForumModeration->getTopic() === $this) {
+                $ForumModeration->setTopic(null);
             }
         }
 

@@ -35,10 +35,10 @@ class ForumController extends AbstractController
         $title = $request->request->get('title');
         $description = $request->request->get('description');
 
-        if (!$title || !$description) {
+        /*if (!$title || !$description) {
             $this->addFlash('error', 'Titre et description requis');
             return $this->redirectToRoute('app_forum');
-        }
+        }*/
         try {
             $this->topicService->createTopic($title, $description, $this->getUser());
             $this->addFlash('success', 'Sujet créé avec succès');
